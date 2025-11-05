@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +12,6 @@
       box-sizing: border-box;
     }
 
-    /* === GENERAL STYLES === */
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: #0a0a0a;
@@ -44,15 +43,10 @@
     }
 
     @keyframes glow {
-      0%, 100% { 
-        filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.4));
-      }
-      50% { 
-        filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.8));
-      }
+      0%, 100% { filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.4)); }
+      50% { filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.8)); }
     }
 
-    /* === NAVIGATION === */
     nav {
       margin-top: 1rem;
     }
@@ -76,13 +70,13 @@
       box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
     }
 
-    /* === SECTIONS === */
     section {
       padding: 4rem 10%;
       min-height: 60vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      animation: fadeIn 1s ease-out;
     }
 
     section:nth-child(even) {
@@ -113,7 +107,6 @@
       background: linear-gradient(90deg, transparent, #d4af37, transparent);
     }
 
-    /* === HOME SECTION === */
     #home {
       text-align: center;
       background: linear-gradient(135deg, #1a0033 0%, #330066 30%, #0a0a0a 100%);
@@ -150,17 +143,10 @@
     }
 
     @keyframes pulse {
-      0%, 100% { 
-        transform: scale(1) rotate(0deg);
-        opacity: 0.3;
-      }
-      50% { 
-        transform: scale(1.1) rotate(180deg);
-        opacity: 0.6;
-      }
+      0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.3; }
+      50% { transform: scale(1.1) rotate(180deg); opacity: 0.6; }
     }
 
-    /* === STORY SECTION === */
     #story p {
       font-size: 1.2rem;
       color: #cccccc;
@@ -170,17 +156,9 @@
       line-height: 1.9;
     }
 
-    #story strong {
-      color: #d4af37;
-      font-weight: 700;
-    }
+    #story strong { color: #d4af37; font-weight: 700; }
+    #story em { color: #a78bfa; font-style: italic; }
 
-    #story em {
-      color: #a78bfa;
-      font-style: italic;
-    }
-
-    /* === CHARACTERS SECTION === */
     #characters ul {
       list-style: none;
       max-width: 900px;
@@ -211,7 +189,6 @@
       margin-bottom: 0.5rem;
     }
 
-    /* === GALLERY SECTION === */
     #gallery {
       text-align: center;
     }
@@ -232,7 +209,6 @@
       box-shadow: 0 15px 50px rgba(212, 175, 55, 0.4);
     }
 
-    /* === FOOTER === */
     footer {
       background: linear-gradient(135deg, #1a0033, #0a0a0a);
       text-align: center;
@@ -251,82 +227,34 @@
       font-size: 1.1rem;
     }
 
-    /* === SPECIAL EFFECTS === */
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    section {
-      animation: fadeIn 1s ease-out;
-    }
-
-    /* === RESPONSIVE === */
     @media (max-width: 768px) {
-      header h1 {
-        font-size: 2rem;
-      }
-
-      nav a {
-        display: block;
-        margin: 0.5rem 0;
-      }
-
-      section {
-        padding: 3rem 5%;
-      }
-
-      section h2 {
-        font-size: 2rem;
-      }
-
-      #home h2 {
-        font-size: 2rem;
-      }
-
-      #home p {
-        font-size: 1.1rem;
-      }
-
-      #story p {
-        font-size: 1.1rem;
-      }
-
-      #gallery img {
-        max-width: 100%;
-      }
+      header h1 { font-size: 2rem; }
+      nav a { display: block; margin: 0.5rem 0; }
+      section { padding: 3rem 5%; }
+      section h2 { font-size: 2rem; }
+      #home h2 { font-size: 2rem; }
+      #home p { font-size: 1.1rem; }
+      #story p { font-size: 1.1rem; }
+      #gallery img { max-width: 100%; }
     }
 
-    /* === CUSTOM SCROLLBAR === */
-    ::-webkit-scrollbar {
-      width: 12px;
-    }
+    ::-webkit-scrollbar { width: 12px; }
+    ::-webkit-scrollbar-track { background: #0a0a0a; }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #d4af37, #330066); border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, #ffd700, #4a0080); }
 
-    ::-webkit-scrollbar-track {
-      background: #0a0a0a;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: linear-gradient(180deg, #d4af37, #330066);
-      border-radius: 10px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: linear-gradient(180deg, #ffd700, #4a0080);
-    }
   </style>
 </head>
 <body>
 
-  <!-- Website Header -->
+  <!-- Header -->
   <header>
-    <img src="https://cdn.discordapp.com/attachments/1420413638061330614/1425469941280411679/IMG-20250430-WA00141.jpg" 
+    <img src="https://i.imgur.com/0X1Gm2K.png" 
          alt="Legend Eresia & Fantasya Logo" 
          style="height: 120px; margin-bottom: 1rem; border-radius: 10px; box-shadow: 0 5px 20px rgba(212, 175, 55, 0.6);">
     <nav>
@@ -337,13 +265,13 @@
     </nav>
   </header>
 
-  <!-- Home Section -->
+  <!-- Home -->
   <section id="home">
     <h2>An Epic Fantasy RPG</h2>
     <p>Prepare yourself for the adventure of a lifetime in a world where magic and legends collide. Your destiny awaits in the mysterious lands of Eresia and Fantasya.</p>
   </section>
 
-  <!-- Story Section -->
+  <!-- Story -->
   <section id="story">
     <h2>📖 The Universe</h2>
     <p>
@@ -354,44 +282,4 @@
       Forgotten heroes must rise to restore the balance between light and darkness. 
       Every choice matters, every battle forges a <em>legend</em>.
     </p>
-  </section>
-
-  <!-- Characters Section -->
-  <section id="characters">
-    <h2>⚔️ Legendary Heroes</h2>
-    <ul>
-      <li>
-        <strong>Aelira</strong>
-        Guardian of Eresia, master of elemental magic and protector of ancient prophecies
-      </li>
-      <li>
-        <strong>Theron</strong>
-        Warrior of Fantasya, bearer of the legendary Stellaris sword and champion of royal tournaments
-      </li>
-      <li>
-        <strong>Nyx</strong>
-        Shadow assassin, walking between worlds with unmatched agility and stealth
-      </li>
-      <li>
-        <strong>Zephyr</strong>
-        Dragon-mage, last of the ancient guardians able to manipulate time itself
-      </li>
-    </ul>
-  </section>
-
-  <!-- Gallery Section -->
-  <section id="gallery">
-    <h2>🖼️ Game Preview</h2>
-    <img src="https://via.placeholder.com/600x300/330066/ffffff?text=Epic+Battle+in+Eresia" alt="Epic battle in Eresia">
-    <img src="https://via.placeholder.com/600x300/d4af37/000000?text=The+Kingdom+of+Fantasya" alt="The kingdom of Fantasya">
-    <img src="https://via.placeholder.com/600x300/1a0033/ffffff?text=Heroes+Concept+Art" alt="Heroes concept art">
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 Legend Eresia & Fantasya. All rights reserved.</p>
-    <p>An epic project in development</p>
-  </footer>
-
-</body>
-</html>
+  </section
