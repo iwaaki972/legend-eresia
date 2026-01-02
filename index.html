@@ -1,217 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Legend Eresia & Fantasya - Epic RPG</title>
-
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #0a0a0a;
-      color: #ffffff;
-      line-height: 1.6;
-      scroll-behavior: smooth;
-    }
-
-    header {
-      background: linear-gradient(135deg, #1a0033, #330066, #1a0033);
-      padding: 2rem 5%;
-      text-align: center;
-      border-bottom: 3px solid #d4af37;
-    }
-
-    header h1 {
-      font-size: 3rem;
-      background: linear-gradient(135deg, #d4af37, #ffd700);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    nav a {
-      color: #d4af37;
-      text-decoration: none;
-      margin: 0 0.8rem;
-      font-weight: bold;
-    }
-
-    section {
-      padding: 4rem 10%;
-      text-align: center;
-    }
-
-    section h2 {
-      color: #d4af37;
-      margin-bottom: 1.5rem;
-      font-size: 2.5rem;
-    }
-
-    #home {
-      background: linear-gradient(135deg, #1a0033, #0a0a0a);
-    }
-
-    #story p, #characters li {
-      max-width: 900px;
-      margin: 1rem auto;
-      color: #ccc;
-    }
-
-    #characters ul { list-style: none; }
-
-    #characters li {
-      background: rgba(51,0,102,0.4);
-      border-left: 4px solid #d4af37;
-      padding: 1.2rem;
-      border-radius: 8px;
-    }
-
-    #gallery img {
-      max-width: 90%;
-      border: 3px solid #d4af37;
-      border-radius: 12px;
-      margin: 1rem 0;
-    }
-
-    /* === FIGMA FOOTER === */
-    .figma-footer {
-      background: #000;
-      padding: 5rem 10% 3rem;
-      border-top: 1px solid rgba(168,85,247,.3);
-      text-align: center;
-    }
-
-    .figma-footer h3 {
-      font-size: 2.2rem;
-      margin-bottom: 1rem;
-    }
-
-    .footer-subtitle {
-      color: rgba(216,180,254,.7);
-      margin-bottom: 2.5rem;
-    }
-
-    .btn {
-      position: relative;
-      overflow: hidden;
-      background: linear-gradient(90deg,#7c3aed,#6d28d9);
-      color: #fff;
-      border: none;
-      padding: .9rem 2.5rem;
-      border-radius: 999px;
-      cursor: pointer;
-      box-shadow: 0 0 25px rgba(147,51,234,.4);
-      transition: .3s;
-    }
-
-    .btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 35px rgba(147,51,234,.6);
-    }
-
-    .footer-bottom {
-      margin-top: 4rem;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(168,85,247,.15);
-      color: rgba(216,180,254,.5);
-      font-size: .9rem;
-    }
-
-    /* Animations */
-    .fade-in-up {
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeUp .8s forwards;
-      animation-play-state: paused;
-    }
-
-    @keyframes fadeUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .ripple {
-      position: absolute;
-      border-radius: 50%;
-      background: rgba(255,255,255,.3);
-      transform: scale(0);
-      animation: ripple .6s ease-out;
-    }
-
-    @keyframes ripple {
-      to { transform: scale(4); opacity: 0; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legend Eresia & Fantasya - ArtixSkills</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
+    <!-- Header -->
+    <header>
+        <img src="https://i.imgur.com/0X1Gm2K.png" 
+             alt="Legend Eresia & Fantasya Logo" 
+             class="logo">
+        <nav>
+            <a href="#home">🏠 Home</a>
+            <a href="#story">📖 Story</a>
+            <a href="#characters">⚔️ Characters</a>
+            <a href="#gallery">🖼️ Gallery</a>
+        </nav>
+    </header>
 
-<header>
-  <img src="https://i.imgur.com/0X1Gm2K.png" height="120">
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#story">Story</a>
-    <a href="#characters">Characters</a>
-    <a href="#gallery">Gallery</a>
-  </nav>
-</header>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-background"></div>
 
-<section id="home">
-  <h2>An Epic Fantasy RPG</h2>
-  <p>Prepare yourself for the adventure of a lifetime.</p>
-</section>
+        <div class="particles">
+            <div class="particle particle-1"></div>
+            <div class="particle particle-2"></div>
+            <div class="particle particle-3"></div>
+            <div class="particle particle-4"></div>
+            <div class="particle particle-5"></div>
+            <div class="particle particle-6"></div>
+            <div class="particle particle-7"></div>
+            <div class="particle particle-8"></div>
+        </div>
 
-<section id="story">
-  <h2>The Universe</h2>
-  <p>Two kingdoms. One destiny.</p>
-</section>
+        <div class="magic-orbs">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+        </div>
 
-<section id="characters">
-  <h2>Legendary Heroes</h2>
-  <ul>
-    <li>Aelira – Guardian Mage</li>
-    <li>Theron – Legendary Warrior</li>
-  </ul>
-</section>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="hero-badge fade-in-left">
+                    ArtixSkills
+                </div>
+                <h1 class="hero-title fade-in-up delay-1">Legend Eresia & Fantasya</h1>
+                <p class="hero-description fade-in-up delay-2">
+                    Dive into an epic universe where legends and magic meet. 
+                    Experience an unforgettable adventure in a fantasy world filled with 
+                    mysteries and challenges.
+                </p>
+                <div class="hero-buttons fade-in-up delay-3">
+                    <button class="btn btn-primary">COMING SOON</button>
+                    <button class="btn btn-secondary">Available on PC</button>
+                </div>
+            </div>
 
-<section id="gallery">
-  <h2>Game Preview</h2>
-  <img src="https://via.placeholder.com/600x300">
-</section>
+            <div class="hero-image-container fade-in-right">
+                <div class="glow-effect"></div>
+                <div class="glow-ring"></div>
+                <div class="magic-sparkles">
+                    <div class="sparkle sparkle-1"></div>
+                    <div class="sparkle sparkle-2"></div>
+                    <div class="sparkle sparkle-3"></div>
+                    <div class="sparkle sparkle-4"></div>
+                </div>
+                <img src="db43d2b2f29445d98fe13ac92d25438e0c978807.png" alt="Phoenix Emblem" class="hero-image">
+            </div>
+        </div>
+    </section>
 
-<!-- FIGMA FOOTER -->
-<footer class="figma-footer fade-in-up">
-  <h3>Let's Create Something Amazing</h3>
-  <p class="footer-subtitle">Transform your digital presence with stunning animations</p>
-  <button class="btn">Get Started</button>
-  <div class="footer-bottom">
-    © 2025 Legend Eresia & Fantasya. All rights reserved.
-  </div>
-</footer>
+    <!-- Story Section -->
+    <section id="story">
+        <h2>📖 The Universe</h2>
+        <p>
+          In the legendary lands of <strong>Eresia</strong> and <strong>Fantasya</strong>, 
+          two kingdoms once united by ancient magic, a dark prophecy threatens to destroy everything.
+        </p>
+        <p>
+          Forgotten heroes must rise to restore the balance between light and darkness. 
+          Every choice matters, every battle forges a <em>legend</em>.
+        </p>
+    </section>
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => e.isIntersecting && (e.target.style.animationPlayState = 'running'));
-  }, { threshold: .1 });
+    <!-- Characters Section -->
+    <section id="characters">
+        <h2>⚔️ Legendary Heroes</h2>
+        <ul>
+          <li><strong>Aelira</strong> Guardian of Eresia, master of elemental magic</li>
+          <li><strong>Theron</strong> Warrior of Fantasya, bearer of the Stellaris sword</li>
+          <li><strong>Nyx</strong> Shadow assassin, walking between worlds</li>
+          <li><strong>Zephyr</strong> Dragon-mage, manipulates time itself</li>
+        </ul>
+    </section>
 
-  document.querySelectorAll('.fade-in-up').forEach(el => obs.observe(el));
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="features-header fade-in">
+                <div class="section-badge">Game Features</div>
+                <h2 class="section-title">A World of Possibilities</h2>
+                <p class="section-description">
+                    Discover all the features that make Legend Eresia & Fantasya 
+                    an unforgettable gaming experience
+                </p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card fade-in-up stagger-1">
+                    <h3>Epic Combat</h3>
+                    <p>Master unique skills and face legendary enemies</p>
+                </div>
+                <div class="feature-card fade-in-up stagger-2">
+                    <h3>Legendary Equipment</h3>
+                    <p>Collect rare armors and weapons to increase your power</p>
+                </div>
+                <div class="feature-card fade-in-up stagger-3">
+                    <h3>Ancient Magic</h3>
+                    <p>Discover powerful spells and mystical enchantments</p>
+                </div>
+                <div class="feature-card fade-in-up stagger-4">
+                    <h3>Multiplayer Mode</h3>
+                    <p>Form alliances and fight alongside other players</p>
+                </div>
+                <div class="feature-card fade-in-up stagger-5">
+                    <h3>Open World</h3>
+                    <p>Explore vast lands filled with secrets and treasures</p>
+                </div>
+                <div class="feature-card fade-in-up stagger-6">
+                    <h3>Tournaments & Rankings</h3>
+                    <p>Participate in competitions and prove your worth</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  document.querySelectorAll('.btn').forEach(btn => {
-    btn.addEventListener('click', e => {
-      const r = document.createElement('span');
-      const d = btn.getBoundingClientRect();
-      const s = Math.max(d.width, d.height);
-      r.style.width = r.style.height = s+'px';
-      r.style.left = e.clientX - d.left - s/2+'px';
-      r.style.top = e.clientY - d.top - s/2+'px';
-      r.className = 'ripple';
-      btn.appendChild(r);
-      setTimeout(() => r.remove(), 600);
-    });
-  });
-});
-</script>
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <h2>🖼️ Game Preview</h2>
+        <img src="https://via.placeholder.com/600x300/330066/ffffff?text=Epic+Battle+in+Eresia" alt="Epic battle">
+        <img src="https://via.placeholder.com/600x300/d4af37/000000?text=Kingdom+of+Fantasya" alt="Kingdom">
+        <img src="https://via.placeholder.com/600x300/1a0033/ffffff?text=Heroes+Concept+Art" alt="Heroes Concept">
+    </section>
 
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content fade-in">
+                <h3>Let's Create Something Amazing</h3>
+                <p>Transform your digital presence with stunning animations</p>
+                <button class="btn btn-primary">Get Started</button>
+            </div>
+            <div class="footer-bottom fade-in delay-1">
+                <p>© 2025 Legend Eresia & Fantasya. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="animations.js"></script>
 </body>
 </html>
