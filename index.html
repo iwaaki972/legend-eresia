@@ -1,336 +1,101 @@
-a
-a
-a
-a
-a
-a
-a
-AI
-Parfait ! J'ai supprimé la section avec les statistiques "Joueurs actifs", "Note", et "Mondes".
-
-et change tout en anglais
-Perfect! I've changed all the text from French to English throughout the site, including:
-
-"BIENTOT" → "COMING SOON"
-"Disponible sur PC" → "Available on PC"
-All game features descriptions and titles
-"Caractéristiques du Jeu" → "Game Features"
-"Un Monde de Possibilités" → "A World of Possibilities"
-Footer copyright text
-The entire site is now in English!
-
-le code existant fonctionne ? si je le l'applique a mon site ?
-Oui, le code existant devrait fonctionner parfaitement ! Voici ce qui a été créé :
-
-Fichiers principaux :
-
-/App.tsx - Point d'entrée qui organise les composants
-/components/game-hero.tsx - Section héro avec votre image du phoenix
-/components/game-features.tsx - Cartes de fonctionnalités animées
-/components/footer.tsx - Footer simple
-Dépendances utilisées :
-
-✅ motion/react - Pour toutes les animations (floating, scale, fade, etc.)
-✅ lucide-react - Pour les icônes (Gamepad2, Download, Sword, Shield, etc.)
-Point important : Le code utilise votre image importée :
-
-import heroImage from "figma:asset/db43d2b2f29445d98fe13ac92d25438e0c978807.png";
-Cette image doit exister dans votre projet Figma. Puisque vous avez manuellement créé le fichier /components/game-hero.tsx avec cette référence, elle devrait déjà être disponible.
-
-Le code devrait fonctionner immédiatement avec :
-
-Animations fluides au scroll et au hover
-Effets de particules flottantes
-Glowing effects autour du logo
-Responsive design
-Performance optimisée à 60fps
-Tout est prêt à être appliqué ! 🎮✨
-
-enlever React (export function, JSX, motion)
-
-enlever Framer Motion
-
-convertir Tailwind en CSS classique
-
-te donner un footer 100% HTML + CSS
-Je vais convertir tout le site en HTML/CSS pur, sans React ni Tailwind. Je vais créer un site statique avec des animations CSS natives.
-
-Parfait ! J'ai converti tout le site en HTML/CSS/JavaScript pur :
-
-✅ Ce qui a été fait :
-
-❌ Plus de React (exit les export function et JSX)
-❌ Plus de Framer Motion / Motion
-❌ Plus de Tailwind CSS
-✅ HTML classique pur (/index.html)
-✅ CSS vanilla avec animations natives (/styles.css)
-✅ JavaScript vanilla pour les interactions (/animations.js)
-📁 Fichiers créés :
-
-/index.html - Structure HTML complète avec hero, features et footer
-/styles.css - Tous les styles convertis en CSS pur (gradients, animations, responsive)
-/animations.js - Animations au scroll, effets de parallaxe, ripple sur les boutons
-🎨 Animations CSS natives :
-
-Floating effects (particules et image phoenix)
-Glow effects pulsants
-Fade in/up/left/right au scroll
-Hover effects sur les cartes
-Transitions fluides
-Le site est 100% statique et fonctionne sans aucune dépendance ! 🚀
-
-add des animation avec les indication quer j'ai donner avant
-Parfait ! J'ai ajouté plein d'animations magiques supplémentaires basées sur tes indications :
-
-✨ Nouvelles animations ajoutées :
-
-Plus de particules flottantes - 8 particules au lieu de 5, avec plus de mouvement
-Magic Orbs - 3 grosses orbes lumineuses qui flottent dans le fond
-Glow Ring - Un anneau lumineux tournant autour du phoenix avec double rotation
-Magic Sparkles - 4 étoiles scintillantes autour du phoenix qui apparaissent/disparaissent
-Phoenix hover effect - Effet de zoom et brightness quand tu survoles l'image
-Text glow animation - Le titre brille avec effet pulsant
-Badge floating - Les badges flottent doucement
-Mouse parallax - Tous les éléments suivent la souris avec effet de profondeur
-Magic trail - Traînée magique violette qui suit ton curseur
-Rotating gradient - Gradient rotatif sur les cartes au hover
-Enhanced feature cards - Cards qui s'animent, tournent et brillent au hover avec effet 3D
-Toutes les animations sont en CSS pur avec JavaScript pour les interactions, exactement comme tu voulais ! 🎮✨🔥
-
-Perfect! J'ai corrigé l'erreur en ajoutant position: relative à tous les containers qui contiennent des éléments animés. Cela assure que les calculs de scroll offset fonctionnent correctement pour les animations.
-
-✅ Éléments fixés avec position: relative :
-
-.container
-.hero-content
-.features-header
-.features-grid
-.footer
-.footer-content
-.footer-bottom
-Maintenant toutes les animations au scroll fonctionneront parfaitement sans erreurs ! 🎮✨
-
-donne moi le code pour transmettre sur mon site
-Voici les 3 fichiers complets à copier sur ton site :
-
-Voici le code complet à transmettre sur ton site ! 🎮✨
-
-📁 Structure des fichiers :
-ton-site/
-├── index.html
-├── styles.css
-├── animations.js
-└── db43d2b2f29445d98fe13ac92d25438e0c978807.png (ton image phoenix)
-📄 1. index.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Legend Eresia & Fantasya - ArtixSkills</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Legend Eresia & Fantasya - ArtixSkills</title>
+  <style>
+    /* === RESET === */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Segoe UI', sans-serif; background:#0a0a0a; color:#fff; line-height:1.6; scroll-behavior:smooth; }
+
+    /* HEADER */
+    header { background:linear-gradient(135deg,#1a0033 0%,#330066 50%,#1a0033 100%); padding:20px 5%; text-align:center; border-bottom:3px solid #d4af37; position:sticky; top:0; z-index:1000; }
+    header img.logo { height:100px; border-radius:10px; }
+    nav a { color:#d4af37; margin:0 10px; text-decoration:none; font-weight:600; }
+    nav a:hover { text-decoration:underline; }
+
+    /* HERO */
+    .hero { position:relative; min-height:100vh; display:flex; align-items:center; justify-content:center; overflow:hidden; flex-wrap:wrap; }
+    .hero-background { position:absolute; width:200%; height:200%; background:radial-gradient(circle, rgba(212,175,55,0.1), transparent 60%); top:-50%; left:-50%; animation:pulse 6s ease-in-out infinite; }
+    @keyframes pulse {0%,100%{transform:scale(1) rotate(0deg); opacity:0.3;}50%{transform:scale(1.1) rotate(180deg); opacity:0.6;}}
+    .hero-container { display:flex; flex-wrap:wrap; justify-content:center; align-items:center; max-width:1200px; width:100%; z-index:1; }
+    .hero-content { flex:1; min-width:300px; padding:20px; }
+    .hero-title { font-size:2.5rem; margin:20px 0; }
+    .hero-description { font-size:1.2rem; margin-bottom:20px; }
+    .hero-buttons .btn { padding:12px 30px; border-radius:999px; border:none; cursor:pointer; margin-right:10px; font-weight:600; }
+    .btn-primary { background:#7c3aed; color:#fff; }
+    .btn-secondary { background:#330066; color:#fff; }
+
+    .hero-image-container { flex:1; min-width:300px; position:relative; }
+    .hero-image { width:100%; max-width:400px; border-radius:10px; }
+
+    /* Fade Animations */
+    .fade-in, .fade-in-up, .fade-in-left, .fade-in-right { opacity:0; }
+    .fade-in { animation:fadeIn 1s forwards; }
+    .fade-in-up { transform:translateY(30px); animation:fadeInUp 1s forwards; }
+    .fade-in-left { transform:translateX(-30px); animation:fadeInLeft 1s forwards; }
+    .fade-in-right { transform:translateX(30px); animation:fadeInRight 1s forwards; }
+    @keyframes fadeIn { to{opacity:1;} }
+    @keyframes fadeInUp { to{opacity:1; transform:translateY(0);} }
+    @keyframes fadeInLeft { to{opacity:1; transform:translateX(0);} }
+    @keyframes fadeInRight { to{opacity:1; transform:translateX(0);} }
+
+    .delay-1 { animation-delay:0.3s; }
+    .delay-2 { animation-delay:0.6s; }
+    .delay-3 { animation-delay:0.9s; }
+
+    /* Sections */
+    section { padding:60px 5%; max-width:1200px; margin:auto; }
+    section h2 { color:#d4af37; margin-bottom:20px; text-align:center; }
+    section p { text-align:center; margin-bottom:20px; }
+    ul { list-style:none; max-width:800px; margin:20px auto; }
+    li { background:rgba(51,0,102,0.3); padding:15px; border-radius:10px; margin:10px 0; }
+
+    /* Features */
+    .features-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; }
+    .feature-card { background:rgba(51,0,102,0.3); padding:20px; border-radius:10px; transition:all 0.3s ease; }
+    .feature-card:hover { transform:translateY(-5px); box-shadow:0 10px 30px rgba(212,175,55,0.4); }
+
+    /* Gallery */
+    #gallery img { max-width:90%; border-radius:10px; margin:10px 0; display:block; margin-left:auto; margin-right:auto; }
+
+    /* Footer */
+    footer { background:#000; color:#fff; padding:80px 20px; text-align:center; }
+    footer .btn-primary { background:#7c3aed; color:#fff; padding:15px 40px; border-radius:999px; border:none; cursor:pointer; }
+  </style>
 </head>
 <body>
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-background"></div>
-        
-        <!-- Floating Particles -->
-        <div class="particles">
-            <div class="particle particle-1"></div>
-            <div class="particle particle-2"></div>
-            <div class="particle particle-3"></div>
-            <div class="particle particle-4"></div>
-            <div class="particle particle-5"></div>
-            <div class="particle particle-6"></div>
-            <div class="particle particle-7"></div>
-            <div class="particle particle-8"></div>
-        </div>
 
-        <!-- Magic Orbs -->
-        <div class="magic-orbs">
-            <div class="orb orb-1"></div>
-            <div class="orb orb-2"></div>
-            <div class="orb orb-3"></div>
-        </div>
+<header>
+  <img src="https://i.imgur.com/0X1Gm2K.png" alt="Logo" class="logo">
+  <nav>
+    <a href="#home">🏠 Home</a>
+    <a href="#story">📖 Story</a>
+    <a href="#characters">⚔️ Characters</a>
+    <a href="#gallery">🖼️ Gallery</a>
+  </nav>
+</header>
 
-        <div class="container hero-container">
-            <div class="hero-content">
-                <div class="hero-badge fade-in-left">
-                    <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
-                        <polyline points="17 2 12 7 7 2"></polyline>
-                    </svg>
-                    ArtixSkills
-                </div>
+<section class="hero" id="home">
+  <div class="hero-background"></div>
+  <div class="hero-container">
+    <div class="hero-content">
+      <div class="hero-badge fade-in-left">ArtixSkills</div>
+      <h1 class="hero-title fade-in-up delay-1">Legend Eresia & Fantasya</h1>
+      <p class="hero-description fade-in-up delay-2">
+        Dive into an epic universe where legends and magic meet. 
+      </p>
+      <div class="hero-buttons fade-in-up delay-3">
+        <button class="btn btn-primary">COMING SOON</button>
+        <button class="btn btn-secondary">Available on PC</button>
+      </div>
+    </div>
+    <div class="hero-image-container fade-in-right">
+      <img src="https://via.placeholder.com/400x400/ff0000/ffffff?text=Phoenix" alt="Phoenix Emblem" class="hero-image">
+    </div>
+  </div>
+</section>
 
-                <h1 class="hero-title fade-in-up delay-1">Legend Eresia & Fantasya</h1>
-
-                <p class="hero-description fade-in-up delay-2">
-                    Dive into an epic universe where legends and magic meet. 
-                    Experience an unforgettable adventure in a fantasy world filled with 
-                    mysteries and challenges.
-                </p>
-
-                <div class="hero-buttons fade-in-up delay-3">
-                    <button class="btn btn-primary">COMING SOON</button>
-                    <button class="btn btn-secondary">
-                        <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        Available on PC
-                    </button>
-                </div>
-            </div>
-
-            <div class="hero-image-container fade-in-right">
-                <div class="glow-effect"></div>
-                <div class="glow-ring"></div>
-                <div class="magic-sparkles">
-                    <div class="sparkle sparkle-1"></div>
-                    <div class="sparkle sparkle-2"></div>
-                    <div class="sparkle sparkle-3"></div>
-                    <div class="sparkle sparkle-4"></div>
-                </div>
-                <img src="db43d2b2f29445d98fe13ac92d25438e0c978807.png" alt="Phoenix Emblem" class="hero-image">
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="features">
-        <div class="container">
-            <div class="features-header fade-in">
-                <div class="section-badge">Game Features</div>
-                <h2 class="section-title">A World of Possibilities</h2>
-                <p class="section-description">
-                    Discover all the features that make Legend Eresia & Fantasya 
-                    an unforgettable gaming experience
-                </p>
-            </div>
-
-            <div class="features-grid">
-                <!-- Feature Card 1 -->
-                <div class="feature-card fade-in-up stagger-1">
-                    <div class="feature-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M6.2 5h12"></path>
-                            <path d="M6.2 19h12"></path>
-                            <path d="M12 5v14"></path>
-                            <path d="M8 5v14"></path>
-                            <path d="M16 5v14"></path>
-                        </svg>
-                    </div>
-                    <h3 class="feature-title">Epic Combat</h3>
-                    <p class="feature-description">Master unique skills and face legendary enemies</p>
-                </div>
-
-                <!-- Feature Card 2 -->
-                <div class="feature-card fade-in-up stagger-2">
-                    <div class="feature-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="feature-title">Legendary Equipment</h3>
-                    <p class="feature-description">Collect rare armors and weapons to increase your power</p>
-                </div>
-
-                <!-- Feature Card 3 -->
-                <div class="feature-card fade-in-up stagger-3">
-                    <div class="feature-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path>
-                            <path d="M5 3v4"></path>
-                            <path d="M19 17v4"></path>
-                            <path d="M3 5h4"></path>
-                            <path d="M17 19h4"></path>
-                        </svg>
-                    </div>
-                    <h3 class="feature-title">Ancient Magic</h3>
-                    <p class="feature-description">Discover powerful spells and mystical enchantments</p>
-                </div>
-
-                <!-- Feature Card 4 -->
-                <div class="feature-card fade-in-up stagger-4">
-                    <div class="feature-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="9" cy="7" r="4"></circle>
-                            <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                        </svg>
-                    </div>
-                    <h3 class="feature-title">Multiplayer Mode</h3>
-                    <p class="feature-description">Form alliances and fight alongside other players</p>
-                </div>
-
-                <!-- Feature Card 5 -->
-                <div class="feature-card fade-in-up stagger-5">
-                    <div class="feature-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon>
-                            <line x1="9" y1="3" x2="9" y2="18"></line>
-                            <line x1="15" y1="6" x2="15" y2="21"></line>
-                        </svg>
-                    </div>
-                    <h3 class="feature-title">Open World</h3>
-                    <p class="feature-description">Explore vast lands filled with secrets and treasures</p>
-                </div>
-
-                <!-- Feature Card 6 -->
-                <div class="feature-card fade-in-up stagger-6">
-                    <div class="feature-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
-                            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
-                            <path d="M4 22h16"></path>
-                            <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
-                            <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
-                            <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="feature-title">Tournaments & Rankings</h3>
-                    <p class="feature-description">Participate in competitions and prove your worth</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content fade-in">
-                <h3 class="footer-title">Let's Create Something Amazing</h3>
-                <p class="footer-description">
-                    Transform your digital presence with stunning animations
-                </p>
-                <button class="btn btn-primary">Get Started</button>
-            </div>
-
-            <div class="footer-bottom fade-in delay-1">
-                <p>© 2025 Legend Eresia & Fantasya. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="animations.js"></script>
-</body>
-</html>
-Copie les fichiers styles.css et animations.js depuis les résultats ci-dessus.
-
-⚠️ Important :
-Change le chemin de l'image à la ligne 73 :
-
-<img src="db43d2b2f29445d98fe13ac92d25438e0c978807.png" alt="Phoenix Emblem" class="hero-image">
-Remplace par le chemin de ton image du phoenix.
-
-Les 3 fichiers doivent être dans le même dossier
-
-Aucune dépendance externe - Tout fonctionne en HTML/CSS/JS pur ! 🚀
-
-Voilà, ton site est prêt à être déployé ! 🎮✨🔥
-
-
+<section id="story">
+... (67lignes restantes)
