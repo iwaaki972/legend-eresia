@@ -1,31 +1,68 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Legend Eresia & Fantasya - Intégration</title>
+  <title>Legend Eresia & Fantasya - ArtixSkills</title>
   <style>
-    /* === VOTRE STYLE ACTUEL === */
+    /* === RESET === */
     * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family:'Segoe UI', sans-serif; background:#0a0a0a; color:#fff; line-height:1.6; overflow-x: hidden; }
+    body { font-family:'Segoe UI', sans-serif; background:#0a0a0a; color:#fff; line-height:1.6; scroll-behavior:smooth; }
 
+    /* HEADER */
     header { background:linear-gradient(135deg,#1a0033 0%,#330066 50%,#1a0033 100%); padding:20px 5%; text-align:center; border-bottom:3px solid #d4af37; position:sticky; top:0; z-index:1000; }
     header img.logo { height:100px; border-radius:10px; }
     nav a { color:#d4af37; margin:0 10px; text-decoration:none; font-weight:600; }
+    nav a:hover { text-decoration:underline; }
 
-    /* === ZONE D'INTÉGRATION IA (FIGMA) === */
-    .conteneur-ia {
-        width: 100%;
-        min-height: 100vh; /* Empêche la coupure du bas de page */
-        position: relative;
-        background: transparent;
-        padding: 20px 0;
-    }
+    /* HERO */
+    .hero { position:relative; min-height:100vh; display:flex; align-items:center; justify-content:center; overflow:hidden; flex-wrap:wrap; }
+    .hero-background { position:absolute; width:200%; height:200%; background:radial-gradient(circle, rgba(212,175,55,0.1), transparent 60%); top:-50%; left:-50%; animation:pulse 6s ease-in-out infinite; }
+    @keyframes pulse {0%,100%{transform:scale(1) rotate(0deg); opacity:0.3;}50%{transform:scale(1.1) rotate(180deg); opacity:0.6;}}
+    .hero-container { display:flex; flex-wrap:wrap; justify-content:center; align-items:center; max-width:1200px; width:100%; z-index:1; }
+    .hero-content { flex:1; min-width:300px; padding:20px; }
+    .hero-title { font-size:2.5rem; margin:20px 0; }
+    .hero-description { font-size:1.2rem; margin-bottom:20px; }
+    .hero-buttons .btn { padding:12px 30px; border-radius:999px; border:none; cursor:pointer; margin-right:10px; font-weight:600; }
+    .btn-primary { background:#7c3aed; color:#fff; }
+    .btn-secondary { background:#330066; color:#fff; }
 
-    /* Ici, on s'assure que le contenu de l'IA ne dépasse pas */
-    .conteneur-ia iframe, .conteneur-ia div {
-        max-width: 100%;
-    }
+    .hero-image-container { flex:1; min-width:300px; position:relative; }
+    .hero-image { width:100%; max-width:400px; border-radius:10px; }
+
+    /* Fade Animations */
+    .fade-in, .fade-in-up, .fade-in-left, .fade-in-right { opacity:0; }
+    .fade-in { animation:fadeIn 1s forwards; }
+    .fade-in-up { transform:translateY(30px); animation:fadeInUp 1s forwards; }
+    .fade-in-left { transform:translateX(-30px); animation:fadeInLeft 1s forwards; }
+    .fade-in-right { transform:translateX(30px); animation:fadeInRight 1s forwards; }
+    @keyframes fadeIn { to{opacity:1;} }
+    @keyframes fadeInUp { to{opacity:1; transform:translateY(0);} }
+    @keyframes fadeInLeft { to{opacity:1; transform:translateX(0);} }
+    @keyframes fadeInRight { to{opacity:1; transform:translateX(0);} }
+
+    .delay-1 { animation-delay:0.3s; }
+    .delay-2 { animation-delay:0.6s; }
+    .delay-3 { animation-delay:0.9s; }
+
+    /* Sections */
+    section { padding:60px 5%; max-width:1200px; margin:auto; }
+    section h2 { color:#d4af37; margin-bottom:20px; text-align:center; }
+    section p { text-align:center; margin-bottom:20px; }
+    ul { list-style:none; max-width:800px; margin:20px auto; }
+    li { background:rgba(51,0,102,0.3); padding:15px; border-radius:10px; margin:10px 0; }
+
+    /* Features */
+    .features-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; }
+    .feature-card { background:rgba(51,0,102,0.3); padding:20px; border-radius:10px; transition:all 0.3s ease; }
+    .feature-card:hover { transform:translateY(-5px); box-shadow:0 10px 30px rgba(212,175,55,0.4); }
+
+    /* Gallery */
+    #gallery img { max-width:90%; border-radius:10px; margin:10px 0; display:block; margin-left:auto; margin-right:auto; }
+
+    /* Footer */
+    footer { background:#000; color:#fff; padding:80px 20px; text-align:center; }
+    footer .btn-primary { background:#7c3aed; color:#fff; padding:15px 40px; border-radius:999px; border:none; cursor:pointer; }
   </style>
 </head>
 <body>
@@ -35,25 +72,96 @@
   <nav>
     <a href="#home">🏠 Home</a>
     <a href="#story">📖 Story</a>
-    <a href="#ia-front">✨ Nouveau Design (Figma)</a>
+    <a href="#characters">⚔️ Characters</a>
+    <a href="#gallery">🖼️ Gallery</a>
   </nav>
 </header>
 
 <section class="hero" id="home">
-    <h1 style="text-align:center; padding: 50px;">Bienvenue sur votre site actuel</h1>
+  <div class="hero-background"></div>
+  <div class="hero-container">
+    <div class="hero-content">
+      <div class="hero-badge fade-in-left">ArtixSkills</div>
+      <h1 class="hero-title fade-in-up delay-1">Legend Eresia & Fantasya</h1>
+      <p class="hero-description fade-in-up delay-2">
+        Dive into an epic universe where legends and magic meet. 
+      </p>
+      <div class="hero-buttons fade-in-up delay-3">
+        <button class="btn btn-primary">COMING SOON</button>
+        <button class="btn btn-secondary">Available on PC</button>
+      </div>
+    </div>
+    <div class="hero-image-container fade-in-right">
+      <img src="https://via.placeholder.com/400x400/ff0000/ffffff?text=Phoenix" alt="Phoenix Emblem" class="hero-image">
+    </div>
+  </div>
 </section>
 
-<div id="ia-front" class="conteneur-ia">
-    
-    <div style="text-align:center; color:#7c3aed;">
-        <h2>--- DÉBUT DU FRONT-END FIGMA ---</h2>
-        </div>
+<section id="story">
+  <h2>📖 The Universe</h2>
+  <p>In the legendary lands of <strong>Eresia</strong> and <strong>Fantasya</strong>, a dark prophecy threatens to destroy everything.</p>
+  <p>Forgotten heroes must rise to restore the balance between light and darkness. Every choice matters, every battle forges a <em>legend</em>.</p>
+</section>
 
-</div>
+<section id="characters">
+  <h2>⚔️ Legendary Heroes</h2>
+  <ul>
+    <li><strong>Aelira</strong> Guardian of Eresia, master of elemental magic</li>
+    <li><strong>Theron</strong> Warrior of Fantasya, bearer of the Stellaris sword</li>
+    <li><strong>Nyx</strong> Shadow assassin, walking between worlds</li>
+    <li><strong>Zephyr</strong> Dragon-mage, manipulates time itself</li>
+  </ul>
+</section>
+
+<section class="features">
+  <h2>A World of Possibilities</h2>
+  <div class="features-grid">
+    <div class="feature-card fade-in-up stagger-1"><h3>Epic Combat</h3><p>Master unique skills and face legendary enemies</p></div>
+    <div class="feature-card fade-in-up stagger-2"><h3>Legendary Equipment</h3><p>Collect rare armors and weapons</p></div>
+    <div class="feature-card fade-in-up stagger-3"><h3>Ancient Magic</h3><p>Discover powerful spells and mystical enchantments</p></div>
+    <div class="feature-card fade-in-up stagger-4"><h3>Multiplayer Mode</h3><p>Form alliances and fight alongside others</p></div>
+    <div class="feature-card fade-in-up stagger-5"><h3>Open World</h3><p>Explore vast lands filled with secrets and treasures</p></div>
+    <div class="feature-card fade-in-up stagger-6"><h3>Tournaments & Rankings</h3><p>Participate in competitions and prove your worth</p></div>
+  </div>
+</section>
+
+<section id="gallery">
+  <h2>🖼️ Game Preview</h2>
+  <img src="https://via.placeholder.com/600x300/330066/ffffff?text=Epic+Battle" alt="Epic battle">
+  <img src="https://via.placeholder.com/600x300/d4af37/000000?text=Kingdom" alt="Kingdom">
+  <img src="https://via.placeholder.com/600x300/1a0033/ffffff?text=Heroes+Concept" alt="Heroes Concept">
+</section>
 
 <footer>
-    <p>&copy; 2026 ArtixSkills - Legend Eresia & Fantasya</p>
+  <h3>Let's Create Something Amazing</h3>
+  <p>Transform your digital presence with stunning animations</p>
+  <button class="btn btn-primary">Get Started</button>
+  <p>© 2025 Legend Eresia & Fantasya. All rights reserved.</p>
 </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) entry.target.style.opacity = 1;
+    });
+  }, { threshold:0.1 });
+
+  document.querySelectorAll('.fade-in, .fade-in-up, .fade-in-left, .fade-in-right').forEach(el => {
+    el.style.opacity = 0;
+    observer.observe(el);
+  });
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(anchor.getAttribute('href'));
+      if(target) target.scrollIntoView({behavior:'smooth'});
+    });
+  });
+});
+</script>
 
 </body>
 </html>
