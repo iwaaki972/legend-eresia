@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,8 +27,8 @@
     .btn-primary { background:#7c3aed; color:#fff; }
     .btn-secondary { background:#330066; color:#fff; }
 
-    .hero-image-container { flex:1; min-width:300px; position:relative; }
-    .hero-image { width:100%; max-width:400px; border-radius:10px; }
+    .hero-image-container { flex:1; min-width:300px; position:relative; text-align:center; }
+    .hero-image { width:100%; max-width:400px; border-radius:10px; display:inline-block; }
 
     /* Fade Animations */
     .fade-in, .fade-in-up, .fade-in-left, .fade-in-right { opacity:0; }
@@ -68,7 +68,9 @@
 <body>
 
 <header>
-  <img src="https://i.imgur.com/0X1Gm2K.png" alt="Logo" class="logo">
+  <!-- Logo local avec fallback externe -->
+  <img src="./assets/logo.png" alt="Logo" class="logo"
+       onerror="this.onerror=null;this.src='https://i.imgur.com/0X1Gm2K.png'">
   <nav>
     <a href="#home">🏠 Home</a>
     <a href="#story">📖 Story</a>
@@ -92,7 +94,9 @@
       </div>
     </div>
     <div class="hero-image-container fade-in-right">
-      <img src="https://via.placeholder.com/400x400/ff0000/ffffff?text=Phoenix" alt="Phoenix Emblem" class="hero-image">
+      <!-- Utiliser l'image fournie: ./assets/phoenix.png -->
+      <img src="./assets/phoenix.png" alt="Phoenix Emblem" class="hero-image" width="400" height="400" loading="eager"
+           onerror="this.onerror=null;this.src='https://via.placeholder.com/400x400/ff0000/ffffff?text=Phoenix'">
     </div>
   </div>
 </section>
@@ -127,9 +131,12 @@
 
 <section id="gallery">
   <h2>🖼️ Game Preview</h2>
-  <img src="https://via.placeholder.com/600x300/330066/ffffff?text=Epic+Battle" alt="Epic battle">
-  <img src="https://via.placeholder.com/600x300/d4af37/000000?text=Kingdom" alt="Kingdom">
-  <img src="https://via.placeholder.com/600x300/1a0033/ffffff?text=Heroes+Concept" alt="Heroes Concept">
+  <img src="./assets/epic-battle.jpg" alt="Epic battle" loading="lazy"
+       onerror="this.onerror=null;this.src='https://via.placeholder.com/600x300/330066/ffffff?text=Epic%20Battle'">
+  <img src="./assets/kingdom.jpg" alt="Kingdom" loading="lazy"
+       onerror="this.onerror=null;this.src='https://via.placeholder.com/600x300/d4af37/000000?text=Kingdom'">
+  <img src="./assets/heroes-concept.jpg" alt="Heroes Concept" loading="lazy"
+       onerror="this.onerror=null;this.src='https://via.placeholder.com/600x300/1a0033/ffffff?text=Heroes%20Concept'">
 </section>
 
 <footer>
