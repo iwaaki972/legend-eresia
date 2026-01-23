@@ -1,189 +1,611 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Legend Eresia & Fantasya - ArtixSkills</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Legend Eresia & Fantasya - ArtixSkills</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #000;
+      color: #fff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #1a0033 0%, #330066 50%, #1a0033 100%);
+      padding: 1.5rem 5%;
+      position: relative;
+      border-bottom: 3px solid #d4af37;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo {
+      height: 80px;
+      border-radius: 10px;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #d4af37;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    nav a:hover {
+      text-shadow: 0 0 10px #d4af37;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: linear-gradient(135deg, #1a0033 0%, #000 100%);
+    }
+
+    .hero-background {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 50% 50%, rgba(147, 51, 234, 0.15) 0%, transparent 70%);
+      animation: pulse 8s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.1); }
+    }
+
+    .hero-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      max-width: 1200px;
+      width: 100%;
+      padding: 2rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .hero-content {
+      max-width: 600px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 0.5rem 1.5rem;
+      background: rgba(147, 51, 234, 0.3);
+      border: 1px solid rgba(147, 51, 234, 0.5);
+      border-radius: 50px;
+      color: #d8b4fe;
+      margin-bottom: 1.5rem;
+      backdrop-filter: blur(10px);
+      animation: float-badge 3s ease-in-out infinite;
+    }
+
+    @keyframes float-badge {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #fff 0%, #d8b4fe 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: text-glow 3s ease-in-out infinite;
+    }
+
+    @keyframes text-glow {
+      0%, 100% { text-shadow: 0 0 20px rgba(147, 51, 234, 0.3); }
+      50% { text-shadow: 0 0 40px rgba(147, 51, 234, 0.6); }
+    }
+
+    .hero-description {
+      font-size: 1.2rem;
+      color: rgba(216, 180, 254, 0.8);
+      margin-bottom: 2rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #9333ea, #7e22ce);
+      color: #fff;
+      box-shadow: 0 10px 25px rgba(147, 51, 234, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(147, 51, 234, 0.5);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-3px);
+    }
+
+    /* Hero Image */
+    .hero-image-container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .glow-effect {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(147, 51, 234, 0.6) 0%, transparent 70%);
+      filter: blur(60px);
+      animation: glow 4s ease-in-out infinite;
+    }
+
+    @keyframes glow {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 0.8; }
+    }
+
+    .glow-ring {
+      position: absolute;
+      width: 450px;
+      height: 450px;
+      border: 2px solid rgba(147, 51, 234, 0.4);
+      border-radius: 50%;
+      animation: spin-ring 20s linear infinite;
+    }
+
+    @keyframes spin-ring {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .hero-image {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      position: relative;
+      z-index: 2;
+      filter: drop-shadow(0 0 40px rgba(147, 51, 234, 0.8));
+      animation: float 6s ease-in-out infinite;
+      transition: all 0.3s;
+    }
+
+    .hero-image:hover {
+      transform: scale(1.05);
+      filter: drop-shadow(0 0 60px rgba(147, 51, 234, 1));
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    /* Particles */
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: rgba(147, 51, 234, 0.8);
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(147, 51, 234, 0.8);
+      pointer-events: none;
+    }
+
+    /* Content Sections */
+    section {
+      padding: 4rem 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    section h2 {
+      font-size: 2.5rem;
+      color: #d4af37;
+      margin-bottom: 2rem;
+      text-align: center;
+      text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+    }
+
+    section p {
+      text-align: center;
+      font-size: 1.1rem;
+      color: rgba(216, 180, 254, 0.8);
+      margin-bottom: 1.5rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Characters List */
+    .characters-list {
+      list-style: none;
+      max-width: 800px;
+      margin: 2rem auto;
+    }
+
+    .characters-list li {
+      background: rgba(51, 0, 102, 0.3);
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin: 1rem 0;
+      border-left: 4px solid #d4af37;
+      transition: all 0.3s;
+    }
+
+    .characters-list li:hover {
+      transform: translateX(10px);
+      background: rgba(51, 0, 102, 0.5);
+      box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+    }
+
+    /* Features Grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .feature-card {
+      background: rgba(147, 51, 234, 0.1);
+      padding: 2rem;
+      border-radius: 15px;
+      border: 1px solid rgba(147, 51, 234, 0.3);
+      transition: all 0.4s;
+      backdrop-filter: blur(10px);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+      background: rgba(147, 51, 234, 0.2);
+      border-color: rgba(147, 51, 234, 0.6);
+      box-shadow: 0 20px 40px rgba(147, 51, 234, 0.4);
+    }
+
+    .feature-card h3 {
+      color: #d4af37;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .feature-card p {
+      color: rgba(216, 180, 254, 0.8);
+      text-align: left;
+    }
+
+    /* Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .gallery-item {
+      border-radius: 15px;
+      overflow: hidden;
+      position: relative;
+      aspect-ratio: 16/9;
+      background: linear-gradient(135deg, #330066, #1a0033);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(216, 180, 254, 0.6);
+      font-size: 1.2rem;
+      border: 1px solid rgba(147, 51, 234, 0.3);
+      transition: all 0.3s;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.05);
+      border-color: rgba(147, 51, 234, 0.6);
+    }
+
+    /* Footer */
+    footer {
+      background: #000;
+      padding: 4rem 5%;
+      text-align: center;
+      border-top: 1px solid rgba(147, 51, 234, 0.3);
+    }
+
+    footer h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #d4af37;
+    }
+
+    footer p {
+      color: rgba(216, 180, 254, 0.7);
+      margin-bottom: 2rem;
+    }
+
+    /* Fade Animations */
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s forwards;
+    }
+
+    .fade-in-left {
+      opacity: 0;
+      transform: translateX(-30px);
+      animation: fadeInLeft 1s forwards;
+    }
+
+    .fade-in-right {
+      opacity: 0;
+      transform: translateX(30px);
+      animation: fadeInRight 1s forwards;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInLeft {
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes fadeInRight {
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .delay-1 { animation-delay: 0.2s; }
+    .delay-2 { animation-delay: 0.4s; }
+    .delay-3 { animation-delay: 0.6s; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .hero-image-container {
+        order: -1;
+      }
+
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .features-grid,
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 2rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-background"></div>
-        
-        <!-- Floating Particles -->
-        <div class="particles">
-            <div class="particle particle-1"></div>
-            <div class="particle particle-2"></div>
-            <div class="particle particle-3"></div>
-            <div class="particle particle-4"></div>
-            <div class="particle particle-5"></div>
-            <div class="particle particle-6"></div>
-            <div class="particle particle-7"></div>
-            <div class="particle particle-8"></div>
-        </div>
 
-        <!-- Magic Orbs -->
-        <div class="magic-orbs">
-            <div class="orb orb-1"></div>
-            <div class="orb orb-2"></div>
-            <div class="orb orb-3"></div>
-        </div>
+<header>
+  <img src="https://i.imgur.com/0X1Gm2K.png" alt="Logo ArtixSkills" class="logo">
+  <nav>
+    <a href="#home">🏠 Home</a>
+    <a href="#story">📖 Story</a>
+    <a href="#characters">⚔️ Characters</a>
+    <a href="#features">✨ Features</a>
+    <a href="#gallery">🖼️ Gallery</a>
+  </nav>
+</header>
 
-        <div class="container hero-container">
-            <div class="hero-content">
-                <div class="hero-badge fade-in-left">
-                    <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
-                        <polyline points="17 2 12 7 7 2"></polyline>
-                    </svg>
-                    ArtixSkills
-                </div>
+<section class="hero" id="home">
+  <div class="hero-background"></div>
+  <div class="hero-container">
+    <div class="hero-content">
+      <div class="hero-badge fade-in-left">ArtixSkills</div>
+      <h1 class="hero-title fade-in-up delay-1">Legend Eresia & Fantasya</h1>
+      <p class="hero-description fade-in-up delay-2">
+        Plongez dans un univers épique où légendes et magie se rencontrent. 
+        Forgez votre destinée et devenez la légende que le monde attend.
+      </p>
+      <div class="hero-buttons fade-in-up delay-3">
+        <button class="btn btn-primary">COMING SOON</button>
+        <button class="btn btn-secondary">Available on PC</button>
+      </div>
+    </div>
+    <div class="hero-image-container fade-in-right">
+      <div class="glow-effect"></div>
+      <div class="glow-ring"></div>
+      <svg class="hero-image" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="phoenixGlow">
+            <stop offset="0%" style="stop-color:#ff6b35;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#f7931e;stop-opacity:0.8" />
+            <stop offset="100%" style="stop-color:#fdc830;stop-opacity:0.3" />
+          </radialGradient>
+        </defs>
+        <circle cx="200" cy="200" r="150" fill="url(#phoenixGlow)" opacity="0.3"/>
+        <path d="M200,100 Q150,150 150,200 Q150,250 200,300 Q250,250 250,200 Q250,150 200,100 Z" 
+              fill="#ff6b35" opacity="0.8"/>
+        <path d="M200,120 L180,180 L200,160 L220,180 Z" fill="#fdc830"/>
+        <circle cx="190" cy="150" r="5" fill="#fff"/>
+        <circle cx="210" cy="150" r="5" fill="#fff"/>
+      </svg>
+    </div>
+  </div>
+</section>
 
-                <h1 class="hero-title fade-in-up delay-1">Legend Eresia & Fantasya</h1>
+<section id="story">
+  <h2>📖 L'Univers</h2>
+  <p>Dans les terres légendaires d'<strong>Eresia</strong> et de <strong>Fantasya</strong>, une prophétie sombre menace de tout détruire.</p>
+  <p>Des héros oubliés doivent se lever pour restaurer l'équilibre entre la lumière et les ténèbres. Chaque choix compte, chaque bataille forge une <em>légende</em>.</p>
+</section>
 
-                <p class="hero-description fade-in-up delay-2">
-                    Dive into an epic universe where legends and magic meet. 
-                    Experience an unforgettable adventure in a fantasy world filled with 
-                    mysteries and challenges.
-                </p>
+<section id="characters">
+  <h2>⚔️ Héros Légendaires</h2>
+  <ul class="characters-list">
+    <li><strong>Aelira</strong> - Gardienne d'Eresia, maîtresse de la magie élémentaire</li>
+    <li><strong>Theron</strong> - Guerrier de Fantasya, porteur de l'épée Stellaris</li>
+    <li><strong>Nyx</strong> - Assassin des ombres, marchant entre les mondes</li>
+    <li><strong>Zephyr</strong> - Mage-dragon, manipule le temps lui-même</li>
+  </ul>
+</section>
 
-                <div class="hero-buttons fade-in-up delay-3">
-                    <button class="btn btn-primary">COMING SOON</button>
-                    <button class="btn btn-secondary">
-                        <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        Available on PC
-                    </button>
-                </div>
-            </div>
+<section id="features" class="features">
+  <h2>Un Monde de Possibilités</h2>
+  <div class="features-grid">
+    <div class="feature-card">
+      <h3>⚔️ Combat Épique</h3>
+      <p>Maîtrisez des compétences uniques et affrontez des ennemis légendaires dans des batailles spectaculaires.</p>
+    </div>
+    <div class="feature-card">
+      <h3>🛡️ Équipement Légendaire</h3>
+      <p>Collectez des armures rares et des armes puissantes pour personnaliser votre héros.</p>
+    </div>
+    <div class="feature-card">
+      <h3>✨ Magie Ancienne</h3>
+      <p>Découvrez des sorts puissants et des enchantements mystiques perdus depuis des millénaires.</p>
+    </div>
+    <div class="feature-card">
+      <h3>👥 Mode Multijoueur</h3>
+      <p>Formez des alliances et combattez aux côtés d'autres joueurs dans des quêtes épiques.</p>
+    </div>
+    <div class="feature-card">
+      <h3>🗺️ Monde Ouvert</h3>
+      <p>Explorez de vastes territoires remplis de secrets, de trésors et de dangers.</p>
+    </div>
+    <div class="feature-card">
+      <h3>🏆 Tournois & Classements</h3>
+      <p>Participez à des compétitions et prouvez votre valeur contre les meilleurs.</p>
+    </div>
+  </div>
+</section>
 
-            <div class="hero-image-container fade-in-right">
-                <div class="glow-effect"></div>
-                <div class="glow-ring"></div>
-                <div class="magic-sparkles">
-                    <div class="sparkle sparkle-1"></div>
-                    <div class="sparkle sparkle-2"></div>
-                    <div class="sparkle sparkle-3"></div>
-                    <div class="sparkle sparkle-4"></div>
-                </div>
-                <img src="https://images.unsplash.com/photo-1739055547896-87319a4d629f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwaG9lbml4JTIwZW1ibGVtJTIwcHVycGxlfGVufDF8fHx8MTc2OTE3MDk4MXww&ixlib=rb-4.1.0&q=80&w=1080" alt="Phoenix Emblem" class="hero-image">
-            </div>
-        </div>
-    </section>
+<section id="gallery">
+  <h2>🖼️ Aperçu du Jeu</h2>
+  <div class="gallery-grid">
+    <div class="gallery-item">Epic Battle Scene</div>
+    <div class="gallery-item">Kingdom of Eresia</div>
+    <div class="gallery-item">Heroes Concept Art</div>
+  </div>
+</section>
 
-    <!-- Features Section -->
-    <section class="features">
-        <div class="container">
-            <div class="features-header fade-in">
-                <div class="section-badge">Game Features</div>
-                <h2 class="section-title">A World of Possibilities</h2>
-                <p class="section-description">
-                    Discover all the features that make Legend Eresia & Fantasya 
-                    an unforgettable gaming experience
-                </p>
-            </div>
+<footer>
+  <p style="color: rgba(216, 180, 254, 0.5);">© 2025 Legend Eresia & Fantasya. Tous droits réservés.</p>
+</footer>
 
-            <div class="features-grid">
-                <!-- Feature Card 1 -->
-                <div class="feature-card fade-in-up stagger-1">
-                    <div class="feature-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M6.2 5h12"></path>
-                            <path d="M6.2 19h12"></path>
-                            <path d="M12 5v14"></path>
-                            <path d="M8 5v14"></path>
-                            <path d="M16 5v14"></path>
-                        </svg>
-                    </div>
-                    <h3 class="feature-title">Epic Combat</h3>
-                    <p class="feature-description">Master unique skills and face legendary enemies</p>
-                </div>
+<script>
+// Intersection Observer pour les animations au scroll
+document.addEventListener('DOMContentLoaded', () => {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationPlayState = 'running';
+      }
+    });
+  }, { threshold: 0.1 });
 
-                <!-- Feature Card 2 -->
-                <div class="feature-card fade-in-up stagger-2">
-                    <div class="feature-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="feature-title">Legendary Equipment</h3>
-                    <p class="feature-description">Collect rare armors and weapons to increase your power</p>
-                </div>
+  document.querySelectorAll('.fade-in, .fade-in-up, .fade-in-left, .fade-in-right').forEach(el => {
+    el.style.animationPlayState = 'paused';
+    observer.observe(el);
+  });
 
-                <!-- Feature Card 3 -->
-                <div class="feature-card fade-in-up stagger-3">
-                    <div class="feature-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path>
-                            <path d="M5 3v4"></path>
-                            <path d="M19 17v4"></path>
-                            <path d="M3 5h4"></path>
-                            <path d="M17 19h4"></path>
-                        </svg>
-                    </div>
-                    <h3 class="feature-title">Ancient Magic</h3>
-                    <p class="feature-description">Discover powerful spells and mystical enchantments</p>
-                </div>
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(anchor.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
 
-                <!-- Feature Card 4 -->
-                <div class="feature-card fade-in-up stagger-4">
-                    <div class="feature-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="9" cy="7" r="4"></circle>
-                            <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                        </svg>
-                    </div>
-                    <h3 class="feature-title">Multiplayer Mode</h3>
-                    <p class="feature-description">Form alliances and fight alongside other players</p>
-                </div>
+  // Effet de particules dynamiques
+  const hero = document.querySelector('.hero');
+  for (let i = 0; i < 20; i++) {
+    const particle = document.createElement('div');
+    particle.className = 'particle';
+    particle.style.left = Math.random() * 100 + '%';
+    particle.style.top = Math.random() * 100 + '%';
+    particle.style.animationDelay = Math.random() * 5 + 's';
+    particle.style.animation = `float ${5 + Math.random() * 5}s ease-in-out infinite`;
+    hero.appendChild(particle);
+  }
+});
+</script>
 
-                <!-- Feature Card 5 -->
-                <div class="feature-card fade-in-up stagger-5">
-                    <div class="feature-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon>
-                            <line x1="9" y1="3" x2="9" y2="18"></line>
-                            <line x1="15" y1="6" x2="15" y2="21"></line>
-                        </svg>
-                    </div>
-                    <h3 class="feature-title">Open World</h3>
-                    <p class="feature-description">Explore vast lands filled with secrets and treasures</p>
-                </div>
-
-                <!-- Feature Card 6 -->
-                <div class="feature-card fade-in-up stagger-6">
-                    <div class="feature-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
-                            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
-                            <path d="M4 22h16"></path>
-                            <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
-                            <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
-                            <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="feature-title">Tournaments & Rankings</h3>
-                    <p class="feature-description">Participate in competitions and prove your worth</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-bottom fade-in">
-                <p>© 2025 Legend Eresia & Fantasya. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="animations.js"></script>
 </body>
 </html>
