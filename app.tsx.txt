@@ -1,0 +1,13 @@
+import { Footer } from "./components/footer";
+import { GameHero } from "./components/game-hero";
+import { GameFeatures } from "./components/game-features";
+
+export default function App() {
+  return (
+    <div className="min-h-screen bg-black">
+      <GameHero />
+      <GameFeatures />
+      <Footer />
+    </div>
+  );
+}
