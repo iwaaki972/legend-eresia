@@ -1,167 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Legend Eresia & Fantasya - ArtixSkills</title>
-  <style>
-    /* === RESET === */
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family:'Segoe UI', sans-serif; background:#0a0a0a; color:#fff; line-height:1.6; scroll-behavior:smooth; }
-
-    /* HEADER */
-    header { background:linear-gradient(135deg,#1a0033 0%,#330066 50%,#1a0033 100%); padding:20px 5%; text-align:center; border-bottom:3px solid #d4af37; position:sticky; top:0; z-index:1000; }
-    header img.logo { height:100px; border-radius:10px; }
-    nav a { color:#d4af37; margin:0 10px; text-decoration:none; font-weight:600; }
-    nav a:hover { text-decoration:underline; }
-
-    /* HERO */
-    .hero { position:relative; min-height:100vh; display:flex; align-items:center; justify-content:center; overflow:hidden; flex-wrap:wrap; }
-    .hero-background { position:absolute; width:200%; height:200%; background:radial-gradient(circle, rgba(212,175,55,0.1), transparent 60%); top:-50%; left:-50%; animation:pulse 6s ease-in-out infinite; }
-    @keyframes pulse {0%,100%{transform:scale(1) rotate(0deg); opacity:0.3;}50%{transform:scale(1.1) rotate(180deg); opacity:0.6;}}
-    .hero-container { display:flex; flex-wrap:wrap; justify-content:center; align-items:center; max-width:1200px; width:100%; z-index:1; }
-    .hero-content { flex:1; min-width:300px; padding:20px; }
-    .hero-title { font-size:2.5rem; margin:20px 0; }
-    .hero-description { font-size:1.2rem; margin-bottom:20px; }
-    .hero-buttons .btn { padding:12px 30px; border-radius:999px; border:none; cursor:pointer; margin-right:10px; font-weight:600; }
-    .btn-primary { background:#7c3aed; color:#fff; }
-    .btn-secondary { background:#330066; color:#fff; }
-
-    .hero-image-container { flex:1; min-width:300px; position:relative; }
-    .hero-image { width:100%; max-width:400px; border-radius:10px; }
-
-    /* Fade Animations */
-    .fade-in, .fade-in-up, .fade-in-left, .fade-in-right { opacity:0; }
-    .fade-in { animation:fadeIn 1s forwards; }
-    .fade-in-up { transform:translateY(30px); animation:fadeInUp 1s forwards; }
-    .fade-in-left { transform:translateX(-30px); animation:fadeInLeft 1s forwards; }
-    .fade-in-right { transform:translateX(30px); animation:fadeInRight 1s forwards; }
-    @keyframes fadeIn { to{opacity:1;} }
-    @keyframes fadeInUp { to{opacity:1; transform:translateY(0);} }
-    @keyframes fadeInLeft { to{opacity:1; transform:translateX(0);} }
-    @keyframes fadeInRight { to{opacity:1; transform:translateX(0);} }
-
-    .delay-1 { animation-delay:0.3s; }
-    .delay-2 { animation-delay:0.6s; }
-    .delay-3 { animation-delay:0.9s; }
-
-    /* Sections */
-    section { padding:60px 5%; max-width:1200px; margin:auto; }
-    section h2 { color:#d4af37; margin-bottom:20px; text-align:center; }
-    section p { text-align:center; margin-bottom:20px; }
-    ul { list-style:none; max-width:800px; margin:20px auto; }
-    li { background:rgba(51,0,102,0.3); padding:15px; border-radius:10px; margin:10px 0; }
-
-    /* Features */
-    .features-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; }
-    .feature-card { background:rgba(51,0,102,0.3); padding:20px; border-radius:10px; transition:all 0.3s ease; }
-    .feature-card:hover { transform:translateY(-5px); box-shadow:0 10px 30px rgba(212,175,55,0.4); }
-
-    /* Gallery */
-    #gallery img { max-width:90%; border-radius:10px; margin:10px 0; display:block; margin-left:auto; margin-right:auto; }
-
-    /* Footer */
-    footer { background:#000; color:#fff; padding:80px 20px; text-align:center; }
-    footer .btn-primary { background:#7c3aed; color:#fff; padding:15px 40px; border-radius:999px; border:none; cursor:pointer; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legend Eresia & Fantasya - ArtixSkills</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background"></div>
+        
+        <!-- Floating Particles -->
+        <div class="particles">
+            <div class="particle particle-1"></div>
+            <div class="particle particle-2"></div>
+            <div class="particle particle-3"></div>
+            <div class="particle particle-4"></div>
+            <div class="particle particle-5"></div>
+            <div class="particle particle-6"></div>
+            <div class="particle particle-7"></div>
+            <div class="particle particle-8"></div>
+        </div>
 
-<header>
-  <img src="https://i.imgur.com/0X1Gm2K.png" alt="Logo" class="logo">
-  <nav>
-    <a href="#home">🏠 Home</a>
-    <a href="#story">📖 Story</a>
-    <a href="#characters">⚔️ Characters</a>
-    <a href="#gallery">🖼️ Gallery</a>
-  </nav>
-</header>
+        <!-- Magic Orbs -->
+        <div class="magic-orbs">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+        </div>
 
-<section class="hero" id="home">
-  <div class="hero-background"></div>
-  <div class="hero-container">
-    <div class="hero-content">
-      <div class="hero-badge fade-in-left">ArtixSkills</div>
-      <h1 class="hero-title fade-in-up delay-1">Legend Eresia & Fantasya</h1>
-      <p class="hero-description fade-in-up delay-2">
-        Dive into an epic universe where legends and magic meet. 
-      </p>
-      <div class="hero-buttons fade-in-up delay-3">
-        <button class="btn btn-primary">COMING SOON</button>
-        <button class="btn btn-secondary">Available on PC</button>
-      </div>
-    </div>
-    <div class="hero-image-container fade-in-right">
-      <img src="https://via.placeholder.com/400x400/ff0000/ffffff?text=Phoenix" alt="Phoenix Emblem" class="hero-image">
-    </div>
-  </div>
-</section>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="hero-badge fade-in-left">
+                    <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
+                        <polyline points="17 2 12 7 7 2"></polyline>
+                    </svg>
+                    ArtixSkills
+                </div>
 
-<section id="story">
-  <h2>📖 The Universe</h2>
-  <p>In the legendary lands of <strong>Eresia</strong> and <strong>Fantasya</strong>, a dark prophecy threatens to destroy everything.</p>
-  <p>Forgotten heroes must rise to restore the balance between light and darkness. Every choice matters, every battle forges a <em>legend</em>.</p>
-</section>
+                <h1 class="hero-title fade-in-up delay-1">Legend Eresia & Fantasya</h1>
 
-<section id="characters">
-  <h2>⚔️ Legendary Heroes</h2>
-  <ul>
-    <li><strong>Aelira</strong> Guardian of Eresia, master of elemental magic</li>
-    <li><strong>Theron</strong> Warrior of Fantasya, bearer of the Stellaris sword</li>
-    <li><strong>Nyx</strong> Shadow assassin, walking between worlds</li>
-    <li><strong>Zephyr</strong> Dragon-mage, manipulates time itself</li>
-  </ul>
-</section>
+                <p class="hero-description fade-in-up delay-2">
+                    Dive into an epic universe where legends and magic meet. 
+                    Experience an unforgettable adventure in a fantasy world filled with 
+                    mysteries and challenges.
+                </p>
 
-<section class="features">
-  <h2>A World of Possibilities</h2>
-  <div class="features-grid">
-    <div class="feature-card fade-in-up stagger-1"><h3>Epic Combat</h3><p>Master unique skills and face legendary enemies</p></div>
-    <div class="feature-card fade-in-up stagger-2"><h3>Legendary Equipment</h3><p>Collect rare armors and weapons</p></div>
-    <div class="feature-card fade-in-up stagger-3"><h3>Ancient Magic</h3><p>Discover powerful spells and mystical enchantments</p></div>
-    <div class="feature-card fade-in-up stagger-4"><h3>Multiplayer Mode</h3><p>Form alliances and fight alongside others</p></div>
-    <div class="feature-card fade-in-up stagger-5"><h3>Open World</h3><p>Explore vast lands filled with secrets and treasures</p></div>
-    <div class="feature-card fade-in-up stagger-6"><h3>Tournaments & Rankings</h3><p>Participate in competitions and prove your worth</p></div>
-  </div>
-</section>
+                <div class="hero-buttons fade-in-up delay-3">
+                    <button class="btn btn-primary">COMING SOON</button>
+                    <button class="btn btn-secondary">
+                        <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        Available on PC
+                    </button>
+                </div>
+            </div>
 
-<section id="gallery">
-  <h2>🖼️ Game Preview</h2>
-  <img src="https://via.placeholder.com/600x300/330066/ffffff?text=Epic+Battle" alt="Epic battle">
-  <img src="https://via.placeholder.com/600x300/d4af37/000000?text=Kingdom" alt="Kingdom">
-  <img src="https://via.placeholder.com/600x300/1a0033/ffffff?text=Heroes+Concept" alt="Heroes Concept">
-</section>
+            <div class="hero-image-container fade-in-right">
+                <div class="glow-effect"></div>
+                <div class="glow-ring"></div>
+                <div class="magic-sparkles">
+                    <div class="sparkle sparkle-1"></div>
+                    <div class="sparkle sparkle-2"></div>
+                    <div class="sparkle sparkle-3"></div>
+                    <div class="sparkle sparkle-4"></div>
+                </div>
+                <img src="https://images.unsplash.com/photo-1739055547896-87319a4d629f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwaG9lbml4JTIwZW1ibGVtJTIwcHVycGxlfGVufDF8fHx8MTc2OTE3MDk4MXww&ixlib=rb-4.1.0&q=80&w=1080" alt="Phoenix Emblem" class="hero-image">
+            </div>
+        </div>
+    </section>
 
-<footer>
-  <h3>Let's Create Something Amazing</h3>
-  <p>Transform your digital presence with stunning animations</p>
-  <button class="btn btn-primary">Get Started</button>
-  <p>© 2025 Legend Eresia & Fantasya. All rights reserved.</p>
-</footer>
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="features-header fade-in">
+                <div class="section-badge">Game Features</div>
+                <h2 class="section-title">A World of Possibilities</h2>
+                <p class="section-description">
+                    Discover all the features that make Legend Eresia & Fantasya 
+                    an unforgettable gaming experience
+                </p>
+            </div>
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting) entry.target.style.opacity = 1;
-    });
-  }, { threshold:0.1 });
+            <div class="features-grid">
+                <!-- Feature Card 1 -->
+                <div class="feature-card fade-in-up stagger-1">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6.2 5h12"></path>
+                            <path d="M6.2 19h12"></path>
+                            <path d="M12 5v14"></path>
+                            <path d="M8 5v14"></path>
+                            <path d="M16 5v14"></path>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Epic Combat</h3>
+                    <p class="feature-description">Master unique skills and face legendary enemies</p>
+                </div>
 
-  document.querySelectorAll('.fade-in, .fade-in-up, .fade-in-left, .fade-in-right').forEach(el => {
-    el.style.opacity = 0;
-    observer.observe(el);
-  });
+                <!-- Feature Card 2 -->
+                <div class="feature-card fade-in-up stagger-2">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Legendary Equipment</h3>
+                    <p class="feature-description">Collect rare armors and weapons to increase your power</p>
+                </div>
 
-  // Smooth scroll
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', e => {
-      e.preventDefault();
-      const target = document.querySelector(anchor.getAttribute('href'));
-      if(target) target.scrollIntoView({behavior:'smooth'});
-    });
-  });
-});
-</script>
+                <!-- Feature Card 3 -->
+                <div class="feature-card fade-in-up stagger-3">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path>
+                            <path d="M5 3v4"></path>
+                            <path d="M19 17v4"></path>
+                            <path d="M3 5h4"></path>
+                            <path d="M17 19h4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Ancient Magic</h3>
+                    <p class="feature-description">Discover powerful spells and mystical enchantments</p>
+                </div>
 
+                <!-- Feature Card 4 -->
+                <div class="feature-card fade-in-up stagger-4">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Multiplayer Mode</h3>
+                    <p class="feature-description">Form alliances and fight alongside other players</p>
+                </div>
+
+                <!-- Feature Card 5 -->
+                <div class="feature-card fade-in-up stagger-5">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon>
+                            <line x1="9" y1="3" x2="9" y2="18"></line>
+                            <line x1="15" y1="6" x2="15" y2="21"></line>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Open World</h3>
+                    <p class="feature-description">Explore vast lands filled with secrets and treasures</p>
+                </div>
+
+                <!-- Feature Card 6 -->
+                <div class="feature-card fade-in-up stagger-6">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                            <path d="M4 22h16"></path>
+                            <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
+                            <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
+                            <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Tournaments & Rankings</h3>
+                    <p class="feature-description">Participate in competitions and prove your worth</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom fade-in">
+                <p>© 2025 Legend Eresia & Fantasya. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="animations.js"></script>
 </body>
 </html>
