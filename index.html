@@ -10,7 +10,7 @@
     body { font-family:'Segoe UI', sans-serif; background:#0a0a0a; color:#fff; line-height:1.6; scroll-behavior:smooth; }
 
     /* HEADER */
-    header { background:linear-gradient(135deg,#1a0033 0%,#330066 50%,#1a0033 100%); padding:20px 5%; text-align:center; border-bottom:3px solid #d4af37; position:sticky; top:0; z-index:1000; }
+    header { background:linear-gradient(135deg,#1a0033 0%,#330066 50%,#1a0033 100%); padding:20px 5%; text-align:center; border-bottom:3px solid #d4af37; position:sticky; top:0; z-index:1000; display:flex; align-items:center; justify-content:space-between; gap:20px; }
     header img.logo { height:100px; border-radius:10px; }
     nav a { color:#d4af37; margin:0 10px; text-decoration:none; font-weight:600; }
     nav a:hover { text-decoration:underline; }
@@ -63,6 +63,15 @@
     /* Footer */
     footer { background:#000; color:#fff; padding:80px 20px; text-align:center; }
     footer .btn-primary { background:#7c3aed; color:#fff; padding:15px 40px; border-radius:999px; border:none; cursor:pointer; }
+
+    /* Accessibility focus */
+    .btn:focus { outline:3px solid rgba(212,175,55,0.35); outline-offset:3px; }
+
+    /* Small devices */
+    @media (max-width:700px) {
+      header { flex-direction:column; gap:8px; }
+      .hero-container { flex-direction:column; padding-top:40px; }
+    }
   </style>
 </head>
 <body>
@@ -142,7 +151,10 @@
 <footer>
   <h3>Let's Create Something Amazing</h3>
   <p>Transform your digital presence with stunning animations</p>
-  <button class="btn btn-primary">Get Started</button>
+
+  <!-- Bouton "Get Started" sans image : la photo que tu as envoyée a été retirée de cette zone -->
+  <button class="btn btn-primary" aria-label="Get Started">Get Started</button>
+
   <p>© 2025 Legend Eresia & Fantasya. All rights reserved.</p>
 </footer>
 
