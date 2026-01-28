@@ -453,6 +453,45 @@
     .delay-2 { animation-delay: 0.4s; }
     .delay-3 { animation-delay: 0.6s; }
 
+    /* Bouton retour en haut */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #9333ea, #7e22ce);
+      border: 2px solid rgba(147, 51, 234, 0.5);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 1000;
+      box-shadow: 0 5px 20px rgba(147, 51, 234, 0.4);
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(147, 51, 234, 0.6);
+      background: linear-gradient(135deg, #a855f7, #9333ea);
+    }
+
+    .back-to-top::before {
+      content: '↑';
+      font-size: 24px;
+      color: white;
+      font-weight: bold;
+    }
+
     /* Responsive */
     @media (max-width: 768px) {
       .hero-container {
@@ -592,6 +631,10 @@
   <p style="color: rgba(216, 180, 254, 0.5);">© 2025 Legend Eresia & Fantasya. Tous droits réservés.</p>
 </footer>
 
+<!-- Bouton retour en haut -->
+<button class="back-to-top" id="backToTop" aria-label="Retour en haut">
+</button>
+
 <script>
 // Intersection Observer pour les animations au scroll
 document.addEventListener('DOMContentLoaded', () => {
@@ -630,6 +673,26 @@ document.addEventListener('DOMContentLoaded', () => {
     particle.style.animation = `float ${5 + Math.random() * 5}s ease-in-out infinite`;
     hero.appendChild(particle);
   }
+
+  // BOUTON RETOUR EN HAUT
+  const backToTopBtn = document.getElementById('backToTop');
+  
+  // Afficher/masquer le bouton selon le scroll
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      backToTopBtn.classList.add('show');
+    } else {
+      backToTopBtn.classList.remove('show');
+    }
+  });
+  
+  // Action du clic : remonter en haut
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
 });
 </script>
 
