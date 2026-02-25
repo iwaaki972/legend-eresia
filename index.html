@@ -182,7 +182,6 @@
       align-items: center;
     }
 
-    /* Lune en arrière-plan */
     .moon {
       position: absolute;
       width: 500px;
@@ -197,7 +196,6 @@
       z-index: 0;
     }
 
-    /* Cratères de la lune */
     .moon::before {
       content: '';
       position: absolute;
@@ -269,7 +267,6 @@
       50% { transform: translateY(-20px); }
     }
 
-    /* Particles */
     .particle {
       position: absolute;
       width: 4px;
@@ -409,51 +406,21 @@
       margin-bottom: 2rem;
     }
 
-    /* Fade Animations */
-    .fade-in {
-      opacity: 0;
-      animation: fadeIn 1s forwards;
-    }
+    /* Animations */
+    .fade-in { opacity: 0; animation: fadeIn 1s forwards; }
+    .fade-in-up { opacity: 0; transform: translateY(30px); animation: fadeInUp 1s forwards; }
+    .fade-in-left { opacity: 0; transform: translateX(-30px); animation: fadeInLeft 1s forwards; }
+    .fade-in-right { opacity: 0; transform: translateX(30px); animation: fadeInRight 1s forwards; }
 
-    .fade-in-up {
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeInUp 1s forwards;
-    }
-
-    .fade-in-left {
-      opacity: 0;
-      transform: translateX(-30px);
-      animation: fadeInLeft 1s forwards;
-    }
-
-    .fade-in-right {
-      opacity: 0;
-      transform: translateX(30px);
-      animation: fadeInRight 1s forwards;
-    }
-
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
-
-    @keyframes fadeInUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeInLeft {
-      to { opacity: 1; transform: translateX(0); }
-    }
-
-    @keyframes fadeInRight {
-      to { opacity: 1; transform: translateX(0); }
-    }
+    @keyframes fadeIn { to { opacity: 1; } }
+    @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeInLeft { to { opacity: 1; transform: translateX(0); } }
+    @keyframes fadeInRight { to { opacity: 1; transform: translateX(0); } }
 
     .delay-1 { animation-delay: 0.2s; }
     .delay-2 { animation-delay: 0.4s; }
     .delay-3 { animation-delay: 0.6s; }
 
-    /* Bouton retour en haut */
     .back-to-top {
       position: fixed;
       bottom: 30px;
@@ -474,63 +441,25 @@
       box-shadow: 0 5px 20px rgba(147, 51, 234, 0.4);
     }
 
-    .back-to-top.show {
-      opacity: 1;
-      visibility: visible;
-    }
-
+    .back-to-top.show { opacity: 1; visibility: visible; }
     .back-to-top:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 30px rgba(147, 51, 234, 0.6);
       background: linear-gradient(135deg, #a855f7, #9333ea);
     }
+    .back-to-top::before { content: '↑'; font-size: 24px; color: white; font-weight: bold; }
 
-    .back-to-top::before {
-      content: '↑';
-      font-size: 24px;
-      color: white;
-      font-weight: bold;
-    }
-
-    /* Responsive */
     @media (max-width: 768px) {
-      .hero-container {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-
-      .hero-title {
-        font-size: 2.5rem;
-      }
-
-      .hero-image-container {
-        order: -1;
-      }
-
-      header {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .features-grid,
-      .gallery-grid {
-        grid-template-columns: 1fr;
-      }
+      .hero-container { grid-template-columns: 1fr; gap: 2rem; }
+      .hero-title { font-size: 2.5rem; }
+      .hero-image-container { order: -1; }
+      header { flex-direction: column; text-align: center; }
+      .features-grid, .gallery-grid { grid-template-columns: 1fr; }
     }
-
     @media (max-width: 480px) {
-      .hero-title {
-        font-size: 2rem;
-      }
-
-      .hero-buttons {
-        flex-direction: column;
-        width: 100%;
-      }
-
-      .btn {
-        width: 100%;
-      }
+      .hero-title { font-size: 2rem; }
+      .hero-buttons { flex-direction: column; width: 100%; }
+      .btn { width: 100%; }
     }
   </style>
 </head>
@@ -542,6 +471,7 @@
     <a href="#home">🏠 Home</a>
     <a href="#story">📖 Story</a>
     <a href="#characters">⚔️ Characters</a>
+    <a href="#showcase">💎 Showcase</a>
     <a href="#features">✨ Features</a>
     <a href="#gallery">🖼️ Gallery</a>
   </nav>
@@ -558,8 +488,8 @@
         Forgez votre destinée et devenez la légende que le monde attend.
       </p>
       <div class="hero-buttons fade-in-up delay-3">
-        <button class="btn btn-primary">COMING SOON</button>
-        <button class="btn btn-secondary">Available on PC</button>
+        <button class="btn btn-primary" id="btn-coming-soon">COMING SOON</button>
+        <button class="btn btn-secondary" id="btn-pc">Available on PC</button>
       </div>
     </div>
     <div class="hero-image-container fade-in-right">
@@ -580,12 +510,17 @@
 
 <section id="characters">
   <h2>⚔️ Héros Légendaires</h2>
-  <ul class="characters-list">
-    <li><strong>Aelira</strong> - Gardienne d'Eresia, maîtresse de la magie élémentaire</li>
-    <li><strong>Theron</strong> - Guerrier de Fantasya, porteur de l'épée Stellaris</li>
-    <li><strong>Nyx</strong> - Assassin des ombres, marchant entre les mondes</li>
-    <li><strong>Zephyr</strong> - Mage-dragon, manipule le temps lui-même</li>
+  <ul class="characters-list" id="heroes-container">
+    <p style="text-align:center;">Chargement des héros...</p>
   </ul>
+</section>
+
+<section id="showcase">
+  <h2>💎 Showcase Communautaire</h2>
+  <p>Découvrez les objets et skins légendaires créés pour Eresia.</p>
+  <div class="features-grid" id="showcase-container">
+     <p style="text-align:center; width:100%;">Chargement des données...</p>
+  </div>
 </section>
 
 <section id="features" class="features">
@@ -603,18 +538,6 @@
       <h3>✨ Magie Ancienne</h3>
       <p>Découvrez des sorts puissants et des enchantements mystiques perdus depuis des millénaires.</p>
     </div>
-    <div class="feature-card">
-      <h3>👥 Mode Multijoueur</h3>
-      <p>Formez des alliances et combattez aux côtés d'autres joueurs dans des quêtes épiques.</p>
-    </div>
-    <div class="feature-card">
-      <h3>🗺️ Monde Ouvert</h3>
-      <p>Explorez de vastes territoires remplis de secrets, de trésors et de dangers.</p>
-    </div>
-    <div class="feature-card">
-      <h3>🏆 Tournois & Classements</h3>
-      <p>Participez à des compétitions et prouvez votre valeur contre les meilleurs.</p>
-    </div>
   </div>
 </section>
 
@@ -627,17 +550,142 @@
   </div>
 </section>
 
+<section id="admin-zone" style="background: rgba(0,0,0,0.5); border-top: 1px solid #333;">
+  <h2>🛠️ Ajouter un Item (Admin)</h2>
+  <div style="max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px;">
+    <input type="text" id="admin-name" placeholder="Nom de l'objet (ex: Armure de Givre)" style="padding: 10px; background: #1a0033; color: white; border: 1px solid #d4af37;">
+    <input type="text" id="admin-rarity" placeholder="Rareté (ex: Légendaire)" style="padding: 10px; background: #1a0033; color: white; border: 1px solid #d4af37;">
+    <input type="text" id="admin-img" placeholder="URL de l'image (ex: https://...)" style="padding: 10px; background: #1a0033; color: white; border: 1px solid #d4af37;">
+    <button onclick="ajouterItem()" class="btn btn-primary">Ajouter à la base de données</button>
+  </div>
+</section>
+
 <footer>
   <p style="color: rgba(216, 180, 254, 0.5);">© 2025 Legend Eresia & Fantasya. Tous droits réservés.</p>
 </footer>
 
-<!-- Bouton retour en haut -->
-<button class="back-to-top" id="backToTop" aria-label="Retour en haut">
-</button>
+<button class="back-to-top" id="backToTop" aria-label="Retour en haut"></button>
 
 <script>
-// Intersection Observer pour les animations au scroll
+// --- CONFIGURATION API ---
+// URL de ton serveur local (à modifier plus tard si hébergement)
+const API_URL = 'http://localhost:3000'; 
+
 document.addEventListener('DOMContentLoaded', () => {
+  chargerShowcase();
+  chargerHeros();
+  setupButtons();
+  setupAnimations();
+});
+
+// --- 1. FONCTIONS API (BACK-END) ---
+
+// Charger les cosmétiques
+async function chargerShowcase() {
+    try {
+        const response = await fetch(`${API_URL}/api/cosmetics`);
+        if (!response.ok) throw new Error("Erreur serveur");
+        const items = await response.json();
+        
+        const container = document.getElementById('showcase-container');
+        container.innerHTML = ''; 
+
+        items.forEach(item => {
+            container.innerHTML += `
+                <div class="feature-card" style="border-color: ${item.color || '#d4af37'}">
+                    <img src="${item.img}" style="width:100%; height:150px; object-fit:cover; border-radius:8px; margin-bottom:10px;">
+                    <h3 style="color:${item.color}">${item.category}</h3>
+                    <p>${item.rarity}</p>
+                </div>`;
+        });
+    } catch (e) { 
+        document.getElementById('showcase-container').innerHTML = "<p>⚠️ Serveur non connecté. Les objets fictifs n'ont pas pu charger.</p>";
+    }
+}
+
+// Charger les héros
+async function chargerHeros() {
+    try {
+        const response = await fetch(`${API_URL}/api/heroes`);
+        if (!response.ok) throw new Error("Erreur serveur");
+        const heroes = await response.json();
+        
+        const listContainer = document.getElementById('heroes-container');
+        listContainer.innerHTML = ''; 
+
+        heroes.forEach(hero => {
+            listContainer.innerHTML += `
+                <li style="display:flex; align-items:center; gap:15px;">
+                    <img src="${hero.img}" style="width:50px; height:50px; border-radius:50%; border: 2px solid #d4af37; object-fit:cover;">
+                    <div>
+                        <strong style="color: #d4af37; font-size: 1.2rem;">${hero.name}</strong> 
+                        - <span style="font-style:italic;">${hero.title}</span>
+                        <p style="font-size:0.9rem; color: #ccc;">${hero.desc}</p>
+                    </div>
+                </li>`;
+        });
+    } catch (e) {
+        document.getElementById('heroes-container').innerHTML = "<li>⚠️ Impossible de charger la liste des héros depuis le serveur.</li>";
+    }
+}
+
+// Ajouter un item (Bouton Admin)
+async function ajouterItem() {
+    const data = {
+        category: document.getElementById('admin-name').value || "Nouvel Objet",
+        rarity: document.getElementById('admin-rarity').value || "Commun",
+        color: "#d4af37",
+        img: document.getElementById('admin-img').value || "https://via.placeholder.com/150"
+    };
+
+    try {
+        const response = await fetch(`${API_URL}/api/cosmetics`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+        if (response.ok) {
+            alert("Objet ajouté avec succès !");
+            chargerShowcase(); 
+        }
+    } catch (error) {
+        alert("Erreur lors de l'ajout (Le serveur est-il allumé ?)");
+    }
+}
+
+// --- 2. FONCTIONS FRONT-END (BOUTONS & ANIMATIONS) ---
+
+function setupButtons() {
+    // Bouton COMING SOON -> Inscription
+    const btnComingSoon = document.getElementById('btn-coming-soon');
+    if (btnComingSoon) {
+        btnComingSoon.addEventListener('click', async () => {
+            const email = prompt("Entrez votre email pour être notifié du lancement :");
+            if (email) {
+                try {
+                    const resp = await fetch(`${API_URL}/api/subscribe`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ email })
+                    });
+                    if (resp.ok) alert("Merci ! Vous êtes inscrit à la liste d'attente.");
+                } catch (e) { 
+                    alert("Erreur de connexion au serveur pour l'inscription."); 
+                }
+            }
+        });
+    }
+
+    // Bouton PC -> Message
+    const btnPc = document.getElementById('btn-pc');
+    if (btnPc) {
+        btnPc.addEventListener('click', () => {
+            alert("Le launcher n'est pas encore disponible publiquement. Rejoignez le Discord !");
+        });
+    }
+}
+
+function setupAnimations() {
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -662,7 +710,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Effet de particules dynamiques
+  // Particules
   const hero = document.querySelector('.hero');
   for (let i = 0; i < 20; i++) {
     const particle = document.createElement('div');
@@ -674,10 +722,8 @@ document.addEventListener('DOMContentLoaded', () => {
     hero.appendChild(particle);
   }
 
-  // BOUTON RETOUR EN HAUT
+  // Retour en haut
   const backToTopBtn = document.getElementById('backToTop');
-  
-  // Afficher/masquer le bouton selon le scroll
   window.addEventListener('scroll', () => {
     if (window.scrollY > 300) {
       backToTopBtn.classList.add('show');
@@ -686,14 +732,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
   
-  // Action du clic : remonter en haut
   backToTopBtn.addEventListener('click', () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
-});
+}
 </script>
 
 </body>
