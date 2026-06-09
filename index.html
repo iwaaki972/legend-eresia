@@ -3,116 +3,225 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Legend Eresia & Fantasya - ArtixSkills</title>
-  
+  <meta name="description" content="Legend Eresia & Fantasya — Plongez dans un univers épique où légendes et magie se rencontrent. Par ArtixSkills.">
+  <title>Legend Eresia & Fantasya — ArtixSkills</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-  <img src="https://i.imgur.com/0X1Gm2K.png" alt="Logo ArtixSkills" class="logo">
-  <nav>
+<!-- ===================== TOAST NOTIFICATIONS ===================== -->
+<div id="toast-container" aria-live="polite"></div>
+
+<!-- ===================== HEADER ===================== -->
+<header id="site-header">
+  <a href="#home" class="logo-link">
+    <img src="https://i.imgur.com/0X1Gm2K.png" alt="Logo ArtixSkills" class="logo">
+  </a>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <nav id="main-nav">
     <a href="#home">🏠 Home</a>
     <a href="#story">📖 Story</a>
-    <a href="#characters">⚔️ Characters</a>
+    <a href="#characters">⚔️ Héros</a>
     <a href="#showcase">💎 Showcase</a>
     <a href="#features">✨ Features</a>
     <a href="#gallery">🖼️ Gallery</a>
   </nav>
 </header>
 
+<!-- ===================== HERO ===================== -->
 <section class="hero" id="home">
-  <div class="hero-background"></div>
+  <div class="hero-bg-gradient"></div>
+  <div class="hero-particles" id="hero-particles"></div>
+
   <div class="hero-container">
     <div class="hero-content">
       <div class="hero-badge fade-in-left">ArtixSkills</div>
-      <h1 class="hero-title fade-in-up delay-1">Legend Eresia & Fantasya</h1>
+      <h1 class="hero-title fade-in-up delay-1">Legend Eresia<br><span class="amp">&</span> Fantasya</h1>
       <p class="hero-description fade-in-up delay-2">
-        Plongez dans un univers épique où légendes et magie se rencontrent. 
+        Plongez dans un univers épique où légendes et magie se rencontrent.
         Forgez votre destinée et devenez la légende que le monde attend.
       </p>
       <div class="hero-buttons fade-in-up delay-3">
-        <button class="btn btn-primary" id="btn-coming-soon">COMING SOON</button>
-        <button class="btn btn-secondary" id="btn-pc">Available on PC</button>
+        <button class="btn btn-primary" id="btn-coming-soon">
+          <span class="btn-icon">🔔</span> Être notifié
+        </button>
+        <button class="btn btn-secondary" id="btn-pc">
+          <span class="btn-icon">🖥️</span> Available on PC
+        </button>
       </div>
+      <p class="hero-note fade-in-up delay-4">Rejoignez la liste d'attente · Accès anticipé</p>
     </div>
-    <div class="hero-image-container fade-in-right">
+
+    <div class="hero-visual fade-in-right delay-2">
       <div class="moon"></div>
-      <div class="glow-effect"></div>
-      <div class="glow-ring"></div>
-      <img src="https://i.imgur.com/YourImageLink.png" alt="Fantasya Phoenix" class="hero-image" 
+      <div class="glow-ring ring-1"></div>
+      <div class="glow-ring ring-2"></div>
+      <div class="glow-core"></div>
+      <img src="https://i.imgur.com/YourImageLink.png" alt="Fantasya Phoenix" class="hero-image"
            onerror="this.style.display='none'">
     </div>
   </div>
-</section>
 
-<section id="story">
-  <h2>📖 L'Univers</h2>
-  <p>Dans les terres légendaires d'<strong>Eresia</strong> et de <strong>Fantasya</strong>, une prophétie sombre menace de tout détruire.</p>
-  <p>Des héros oubliés doivent se lever pour restaurer l'équilibre entre la lumière et les ténèbres. Chaque choix compte, chaque bataille forge une <em>légende</em>.</p>
-</section>
-
-<section id="characters">
-  <h2>⚔️ Héros Légendaires</h2>
-  <ul class="characters-list" id="heroes-container">
-    <p style="text-align:center;">Chargement des héros...</p>
-  </ul>
-</section>
-
-<section id="showcase">
-  <h2>💎 Showcase Communautaire</h2>
-  <p>Découvrez les objets et skins légendaires créés pour Eresia.</p>
-  <div class="features-grid" id="showcase-container">
-     <p style="text-align:center; width:100%;">Chargement des données...</p>
+  <div class="scroll-hint" aria-hidden="true">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
   </div>
 </section>
 
-<section id="features" class="features">
-  <h2>Un Monde de Possibilités</h2>
-  <div class="features-grid">
-    <div class="feature-card">
-      <h3>⚔️ Combat Épique</h3>
-      <p>Maîtrisez des compétences uniques et affrontez des ennemis légendaires dans des batailles spectaculaires.</p>
-    </div>
-    <div class="feature-card">
-      <h3>🛡️ Équipement Légendaire</h3>
-      <p>Collectez des armures rares et des armes puissantes pour personnaliser votre héros.</p>
-    </div>
-    <div class="feature-card">
-      <h3>✨ Magie Ancienne</h3>
-      <p>Découvrez des sorts puissants et des enchantements mystiques perdus depuis des millénaires.</p>
+<!-- ===================== STORY ===================== -->
+<section id="story" class="section">
+  <div class="section-inner">
+    <div class="section-label">Lore</div>
+    <h2 class="section-title">📖 L'Univers</h2>
+    <div class="story-grid">
+      <div class="story-text">
+        <p>Dans les terres légendaires d'<strong>Eresia</strong> et de <strong>Fantasya</strong>, une prophétie sombre menace de tout détruire. Des héros oubliés doivent se lever pour restaurer l'équilibre entre la lumière et les ténèbres.</p>
+        <p>Chaque choix compte. Chaque bataille forge une <em>légende</em>. Quel sera votre héritage ?</p>
+      </div>
+      <div class="story-stats">
+        <div class="stat-item">
+          <span class="stat-number">2</span>
+          <span class="stat-label">Royaumes</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">∞</span>
+          <span class="stat-label">Destins</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">1</span>
+          <span class="stat-label">Prophétie</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="gallery">
-  <h2>🖼️ Aperçu du Jeu</h2>
-  <div class="gallery-grid">
-    <div class="gallery-item">Epic Battle Scene</div>
-    <div class="gallery-item">Kingdom of Eresia</div>
-    <div class="gallery-item">Heroes Concept Art</div>
+<!-- ===================== CHARACTERS ===================== -->
+<section id="characters" class="section section-dark">
+  <div class="section-inner">
+    <div class="section-label">Roster</div>
+    <h2 class="section-title">⚔️ Héros Légendaires</h2>
+    <ul class="characters-list" id="heroes-container">
+      <li class="hero-skeleton"></li>
+      <li class="hero-skeleton"></li>
+      <li class="hero-skeleton"></li>
+    </ul>
   </div>
 </section>
 
-<section id="admin-zone" style="background: rgba(0,0,0,0.5); border-top: 1px solid #333;">
-  <h2>🛠️ Ajouter un Item (Admin)</h2>
-  <div style="max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px;">
-    <input type="text" id="admin-name" placeholder="Nom de l'objet" style="padding: 10px; background: #1a0033; color: white; border: 1px solid #d4af37;">
-    <input type="text" id="admin-rarity" placeholder="Rareté" style="padding: 10px; background: #1a0033; color: white; border: 1px solid #d4af37;">
-    <input type="text" id="admin-img" placeholder="URL de l'image" style="padding: 10px; background: #1a0033; color: white; border: 1px solid #d4af37;">
-    <button onclick="ajouterItem()" class="btn btn-primary">Ajouter à la base de données</button>
+<!-- ===================== SHOWCASE ===================== -->
+<section id="showcase" class="section">
+  <div class="section-inner">
+    <div class="section-label">Community</div>
+    <h2 class="section-title">💎 Showcase Communautaire</h2>
+    <p class="section-sub">Découvrez les objets et skins légendaires créés pour Eresia.</p>
+    <div class="features-grid" id="showcase-container">
+      <div class="card-skeleton"></div>
+      <div class="card-skeleton"></div>
+      <div class="card-skeleton"></div>
+    </div>
   </div>
 </section>
 
+<!-- ===================== FEATURES ===================== -->
+<section id="features" class="section section-dark">
+  <div class="section-inner">
+    <div class="section-label">Gameplay</div>
+    <h2 class="section-title">Un Monde de Possibilités</h2>
+    <div class="features-grid">
+      <div class="feature-card fade-in-up">
+        <div class="feature-icon">⚔️</div>
+        <h3>Combat Épique</h3>
+        <p>Maîtrisez des compétences uniques et affrontez des ennemis légendaires dans des batailles spectaculaires.</p>
+      </div>
+      <div class="feature-card fade-in-up delay-1">
+        <div class="feature-icon">🛡️</div>
+        <h3>Équipement Légendaire</h3>
+        <p>Collectez des armures rares et des armes puissantes pour personnaliser votre héros.</p>
+      </div>
+      <div class="feature-card fade-in-up delay-2">
+        <div class="feature-icon">✨</div>
+        <h3>Magie Ancienne</h3>
+        <p>Découvrez des sorts puissants et des enchantements mystiques perdus depuis des millénaires.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GALLERY ===================== -->
+<section id="gallery" class="section">
+  <div class="section-inner">
+    <div class="section-label">Preview</div>
+    <h2 class="section-title">🖼️ Aperçu du Jeu</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item" data-label="Combat Épique">
+        <div class="gallery-placeholder">⚔️</div>
+      </div>
+      <div class="gallery-item gallery-item--wide" data-label="Royaume d'Eresia">
+        <div class="gallery-placeholder">🏰</div>
+      </div>
+      <div class="gallery-item" data-label="Concept Art Héros">
+        <div class="gallery-placeholder">🎨</div>
+      </div>
+      <div class="gallery-item gallery-item--tall" data-label="Magie Ancienne">
+        <div class="gallery-placeholder">✨</div>
+      </div>
+      <div class="gallery-item" data-label="Équipements Rares">
+        <div class="gallery-placeholder">🛡️</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ADMIN (PROTÉGÉ) ===================== -->
+<section id="admin-zone" class="section section-admin">
+  <div class="section-inner">
+    <div class="admin-lock" id="admin-lock">
+      <div class="section-label">Admin</div>
+      <h2 class="section-title">🛠️ Zone Administration</h2>
+      <p class="section-sub">Accès réservé aux administrateurs.</p>
+      <div class="admin-auth">
+        <input type="password" id="admin-password" placeholder="Mot de passe admin" class="input-field" autocomplete="current-password">
+        <button class="btn btn-primary" id="btn-admin-login">Accéder</button>
+      </div>
+    </div>
+
+    <div class="admin-panel hidden" id="admin-panel">
+      <div class="section-label">Admin</div>
+      <h2 class="section-title">🛠️ Ajouter un Item</h2>
+      <div class="admin-form">
+        <input type="text" id="admin-name" placeholder="Nom de l'objet" class="input-field" maxlength="80">
+        <input type="text" id="admin-rarity" placeholder="Rareté (ex: Légendaire)" class="input-field" maxlength="40">
+        <input type="url" id="admin-img" placeholder="URL de l'image (https://...)" class="input-field">
+        <button class="btn btn-primary" id="btn-ajouter-item">Ajouter à la base de données</button>
+        <button class="btn btn-ghost" id="btn-admin-logout">Se déconnecter</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
 <footer>
-  <p style="color: rgba(216, 180, 254, 0.5);">© 2025 Legend Eresia & Fantasya. Tous droits réservés.</p>
+  <div class="footer-inner">
+    <img src="https://i.imgur.com/0X1Gm2K.png" alt="Logo ArtixSkills" class="footer-logo">
+    <p class="footer-copy">© 2025 Legend Eresia &amp; Fantasya · ArtixSkills. Tous droits réservés.</p>
+    <div class="footer-links">
+      <a href="#home">Accueil</a>
+      <a href="#story">Story</a>
+      <a href="#characters">Héros</a>
+    </div>
+  </div>
 </footer>
 
-<button class="back-to-top" id="backToTop" aria-label="Retour en haut"></button>
+<!-- ===================== BACK TO TOP ===================== -->
+<button class="back-to-top" id="backToTop" aria-label="Retour en haut">↑</button>
 
 <script src="script.js"></script>
 </body>
